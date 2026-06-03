@@ -103,3 +103,8 @@ None
 ## Internal page added
 
 - `changelog.html` — Tracks mod-list additions, removals, and save-safety notes only.
+
+
+## Layout note
+
+This Mojave site uses the same static layout style as Shonk's Pocket Wastelands while keeping the New Vegas guide content separate.

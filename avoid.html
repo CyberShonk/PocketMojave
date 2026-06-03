@@ -1,32 +1,41 @@
 <!doctype html>
+
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Avoid | Shonk's Pocket Mojave</title>
-  <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
-  <link rel="stylesheet" href="styles.css">
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Avoid | Shonk's Pocket Mojave</title>
+<meta content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering." name="description"/>
+<link href="assets/site.css" rel="stylesheet"/>
 </head>
 <body>
 <header class="site-header">
-  <div class="wrap header-grid">
-    <a class="brand" href="index.html">Shonk's Pocket Mojave</a>
-    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">Menu</button>
-    <nav class="site-nav" aria-label="Main navigation"><a class="" href="index.html">Home</a><a class="" href="setup.html">Setup</a><a class="" href="mods.html">Mod List</a><a class="" href="load-order.html">Load Order</a><a class="active" href="avoid.html">Avoid</a><a class="" href="changelog.html">Changelog</a><a class="" href="report.html">Reports</a></nav>
-  </div>
+<div class="container header-inner">
+<a class="logo" href="index.html">Shonk's Pocket Mojave</a>
+<nav aria-label="Main navigation" class="nav">
+<a href="index.html">Home</a>
+<a href="setup.html">Setup</a>
+<a href="mods.html">Mod List</a>
+<a href="load-order.html">Load Order</a>
+<a class="active" href="avoid.html">Avoid</a>
+<a href="changelog.html">Changelog</a>
+<a href="report.html">Reports</a>
+</nav>
+</div>
 </header>
-<main class="wrap page">
-
-<h1>Tools and Mods to Avoid</h1><p>This page is not a permanent ban list. It is a mobile-first caution list for this guide.</p>
-<section><h2>Tools to avoid for this guide</h2><div class="table-wrap"><table class="mod-table"><thead><tr><th>Tool/category</th><th>Status</th><th>Reason</th></tr></thead><tbody><tr><td data-label="Tool/category">ENB</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Not a good fit for this Android/GameNative target.</td></tr><tr><td data-label="Tool/category">Wabbajack</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Desktop MO2 automation does not match the current DML mobile setup.</td></tr><tr><td data-label="Tool/category">Automated LOD generation on Android</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Useful later, but too many generated files and too many variables for this guide right now.</td></tr><tr><td data-label="Tool/category">Old New Vegas mod managers</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">This guide is written for DML. Old managers make troubleshooting harder.</td></tr><tr><td data-label="Tool/category">Random INI packs</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Use BethINI Pie and your own saved INIs instead.</td></tr></tbody></table></div></section>
+<main class="c o n t a i e r">
+<section class="hero"><h1>Tools and Mods to Avoid</h1><p class="lead">This page is not a permanent ban list. It is a mobile-first caution list for this guide.</p></section><section><h2>Tools to avoid for this guide</h2><div class="table-wrap"><table class="mod-table"><thead><tr><th>Tool/category</th><th>Status</th><th>Reason</th></tr></thead><tbody><tr><td data-label="Tool/category">ENB</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Not a good fit for this Android/GameNative target.</td></tr><tr><td data-label="Tool/category">Wabbajack</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Desktop MO2 automation does not match the current DML mobile setup.</td></tr><tr><td data-label="Tool/category">Automated LOD generation on Android</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Useful later, but too many generated files and too many variables for this guide right now.</td></tr><tr><td data-label="Tool/category">Old New Vegas mod managers</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">This guide is written for DML. Old managers make troubleshooting harder.</td></tr><tr><td data-label="Tool/category">Random INI packs</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Use BethINI Pie and your own saved INIs instead.</td></tr></tbody></table></div></section>
 <section><h2>Mod categories to avoid for now</h2><div class="table-wrap"><table class="mod-table"><thead><tr><th>Category</th><th>Status</th><th>Reason</th></tr></thead><tbody><tr><td data-label="Category">Generated LOD setups</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Needs its own Android path later.</td></tr><tr><td data-label="Category">Huge texture packs</td><td data-label="Status"><span class="badge test">Testing</span></td><td data-label="Reason">Can work, but storage and memory cost climb fast. Test separately.</td></tr><tr><td data-label="Category">Heavy grass or landscape overhauls</td><td data-label="Status"><span class="badge test">Testing</span></td><td data-label="Reason">Extra render cost and more variables.</td></tr><tr><td data-label="Category">Heavy particle overhauls</td><td data-label="Status"><span class="badge skip">Avoid</span></td><td data-label="Reason">Test separately with FPS and crash logs.</td></tr><tr><td data-label="Category">Picture-in-picture scope setups</td><td data-label="Status"><span class="badge test">Testing</span></td><td data-label="Reason">Can be expensive on mobile. Test after the main guide.</td></tr><tr><td data-label="Category">Large NPC face/body overhauls</td><td data-label="Status"><span class="badge test">Testing</span></td><td data-label="Reason">Asset-heavy and patch-heavy.</td></tr><tr><td data-label="Category">Big quest/worldspace stacks</td><td data-label="Status"><span class="badge test">Testing</span></td><td data-label="Reason">Add one at a time after the guide list works.</td></tr></tbody></table></div></section>
 <section><h2>Safe modding rule</h2><ul><li>Do not keep adding mods after a failed launch.</li><li>Do not change Proton, Turnip, DXVK, BethINI, and mods all in one test.</li><li>Do not assume desktop advice applies cleanly to Android.</li><li>When benchmarking, change one thing and write down what changed.</li></ul></section>
 
-</main>
+<nav aria-label="Page navigation" class="page-nav">
+<a class="page-nav-link prev" href="load-order.html"><span>← Previous</span><strong>Load Order</strong></a>
+<a class="page-nav-link next" href="changelog.html"><span>Next →</span><strong>Changelog</strong></a>
+</nav></main>
 <footer class="site-footer">
-  <div class="wrap">
-    <p>Built for Android handheld New Vegas, <a href="https://github.com/utkarshdalal/GameNative" target="_blank" rel="noopener">GameNative</a>, and <a href="https://github.com/CyberShonk/DroidModLoader" target="_blank" rel="noopener">Droid Mod Loader</a>.</p>
-    <p class="small">This guide is unofficial and does not redistribute any game files or mods. Read each mod page before installing.</p>
+<div class="container">
+    Built for Android handheld New Vegas, <a href="https://github.com/utkarshdalal/GameNative">GameNative</a>, and <a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a>.
+    <br/>This guide is unofficial and does not redistribute any game files or mods. Read each mod page before installing.
   </div>
 </footer>
 <script src="copy.js"></script>
