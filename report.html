@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports | Shonk's Pocket Mojave</title>
+  <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-grid">
+    <a class="brand" href="index.html">Shonk's Pocket Mojave</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">Menu</button>
+    <nav class="site-nav" aria-label="Main navigation"><a class="" href="index.html">Home</a><a class="" href="setup.html">Setup</a><a class="" href="mods.html">Mod List</a><a class="" href="load-order.html">Load Order</a><a class="" href="avoid.html">Avoid</a><a class="active" href="report.html">Reports</a></nav>
+  </div>
+</header>
+<main class="wrap page">
+
+<h1>Reports and Troubleshooting</h1>
+<section>
+  <h2>When reporting a problem</h2>
+  <p>A useful report includes the DML support report, plugin list, load order, crash logger output if available, and the last mod installed before the issue appeared.</p>
+  <pre><code>Device:
+Android version:
+GameNative version:
+Game source: Steam / GOG / Epic
+GameNative driver:
+Turnip driver/version:
+DXVK version:
+Wine/Proton version:
+Resolution:
+Present mode:
+Frame cap:
+FEXCore/Box64 setting:
+Droid Mod Loader version:
+DML profile name:
+Guide page reached:
+Last mod installed:
+Did vanilla GameNative pass? yes/no
+Did xNVSE load? yes/no/unknown
+Crash location:
+Crash timing: launch / main menu / load save / entering cell / combat / menu
+What changed before the issue:
+Plugin list attached? yes/no
+Load order attached? yes/no
+DML support report attached? yes/no
+Crash logger output attached? yes/no
+Notes:</code></pre>
+</section>
+<section>
+  <h2>Fast troubleshooting</h2>
+  <ol>
+    <li>Confirm the game still launches through <code>nvse_loader.exe</code>.</li>
+    <li>Check for missing masters in the plugin list.</li>
+    <li>Check that the exported <code>plugins.txt</code> and <code>loadorder.txt</code> are in the GameNative prefix path the game actually reads.</li>
+    <li>Disable the last mod installed and test again.</li>
+    <li>If the issue remains, disable the last whole section and test again.</li>
+    <li>If a UI menu breaks, stop adding mods and fix the UI section first.</li>
+    <li>If audio breaks after cache edits, remove the cache edits and keep audio multithreading only.</li>
+  </ol>
+</section>
+<section>
+  <h2>What not to do</h2>
+  <ul>
+    <li>Do not reinstall the whole game before checking the last mod change.</li>
+    <li>Do not keep adding mods after a failed launch.</li>
+    <li>Do not change Proton, Turnip, DXVK, BethINI, and mods all in one test.</li>
+    <li>Do not assume desktop fixes apply cleanly to Android.</li>
+  </ul>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Built for Android handheld New Vegas, GameNative, and <a href="https://github.com/CyberShonk/DroidModLoader" target="_blank" rel="noopener">Droid Mod Loader</a>.</p>
+    <p class="small">This guide is unofficial and does not redistribute any game files or mods. Read each mod page before installing.</p>
+  </div>
+</footer>
+<script src="copy.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Avoid | Shonk's Pocket Mojave</title>
+  <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-grid">
+    <a class="brand" href="index.html">Shonk's Pocket Mojave</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">Menu</button>
+    <nav class="site-nav" aria-label="Main navigation"><a class="" href="index.html">Home</a><a class="" href="setup.html">Setup</a><a class="" href="mods.html">Mod List</a><a class="" href="load-order.html">Load Order</a><a class="active" href="avoid.html">Avoid</a><a class="" href="report.html">Reports</a></nav>
+  </div>
+</header>
+<main class="wrap page">
+
+<h1>Tools and Mods to Avoid</h1>
+<aside class="callout warn"><strong>No author drama</strong><div>This page is not for dunking on mod authors. It is about keeping the Android guide clean, easy to test, and beginner-friendly.</div></aside>
+<section>
+  <h2>Tools to avoid for this guide</h2>
+  <div class="table-wrap"><table class="mod-table"><thead><tr><th>Tool / practice</th><th>Status</th><th>Why</th></tr></thead><tbody><tr><td>Old mod managers as the main setup</td><td><span class="badge skip">Avoid</span></td><td>Do not build this guide around FOMM, old NMM, or random manual Data folder piles. Use DML for the Android side.</td></tr><tr><td>New Vegas Stutter Remover</td><td><span class="badge skip">Avoid</span></td><td>Replaced by modern tick/performance fixes. It is not a good fit for this guide.</td></tr><tr><td>NVAC as a normal recommendation</td><td><span class="badge skip">Avoid</span></td><td>It can hide crashes that should be reported and fixed. Use Crash Logger for useful reports.</td></tr><tr><td>ENB / ENBoost</td><td><span class="badge skip">Avoid</span></td><td>Not the target renderer path for Android/GameNative.</td></tr><tr><td>Random auto-purge/cache cleaner mods</td><td><span class="badge skip">Avoid</span></td><td>They can add stutter and make troubleshooting harder.</td></tr><tr><td>One-click desktop modlists</td><td><span class="badge skip">Avoid</span></td><td>They assume desktop MO2 paths, desktop LOD, and desktop GPU behavior.</td></tr></tbody></table></div>
+</section>
+<section>
+  <h2>Mods and categories not included yet</h2>
+  <div class="table-wrap"><table class="mod-table"><thead><tr><th>Category</th><th>Status</th><th>Why</th></tr></thead><tbody><tr><td>Generated LOD toolchain</td><td><span class="badge skip">Not included</span></td><td>LOD generation needs its own mobile testing path. Do not fold it into the main guide yet.</td></tr><tr><td>Large terrain/object LOD packs</td><td><span class="badge skip">Not included</span></td><td>More files and more variables. Better as a later visual page.</td></tr><tr><td>Huge texture packs</td><td><span class="badge rec">Testing</span></td><td>Storage, memory, and load times can climb fast on Android.</td></tr><tr><td>Heavy grass or landscape overhauls</td><td><span class="badge rec">Testing</span></td><td>Extra render cost and more variables.</td></tr><tr><td>Heavy particle overhauls</td><td><span class="badge skip">Avoid for now</span></td><td>Test separately with FPS and crash logs.</td></tr><tr><td>Picture-in-picture scope setups</td><td><span class="badge rec">Testing</span></td><td>Can be expensive on mobile. Add only after the main guide works.</td></tr><tr><td>Large NPC face/body overhauls</td><td><span class="badge skip">Not included</span></td><td>Asset-heavy and patch-heavy.</td></tr><tr><td>Major balance overhauls</td><td><span class="badge opt">Personal choice</span></td><td>Not part of this guide because difficulty and DLC changes are taste-based.</td></tr></tbody></table></div>
+</section>
+<section>
+  <h2>Safe modding rules</h2>
+  <ul>
+    <li>Read the mod page and requirements.</li>
+    <li>Install one section at a time.</li>
+    <li>When something breaks, undo the last change first.</li>
+    <li>Do not add ten mods after a failed test.</li>
+    <li>If a mod claims performance improvement, benchmark it on your device.</li>
+    <li>Keep root tools, DML mods, and generated outputs clearly separated.</li>
+  </ul>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Built for Android handheld New Vegas, GameNative, and <a href="https://github.com/CyberShonk/DroidModLoader" target="_blank" rel="noopener">Droid Mod Loader</a>.</p>
+    <p class="small">This guide is unofficial and does not redistribute any game files or mods. Read each mod page before installing.</p>
+  </div>
+</footer>
+<script src="copy.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Setup | Shonk's Pocket Mojave</title>
+  <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-grid">
+    <a class="brand" href="index.html">Shonk's Pocket Mojave</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">Menu</button>
+    <nav class="site-nav" aria-label="Main navigation"><a class="" href="index.html">Home</a><a class="active" href="setup.html">Setup</a><a class="" href="mods.html">Mod List</a><a class="" href="load-order.html">Load Order</a><a class="" href="avoid.html">Avoid</a><a class="" href="report.html">Reports</a></nav>
+  </div>
+</header>
+<main class="wrap page">
+
+<h1>Setup</h1>
+<p>Get the game and tools working before installing mods. This keeps problems easy to find.</p>
+<section>
+  <h2>GameNative setup</h2>
+  <p>Use a simple GameNative setup first. Do not change drivers, wrappers, resolution, and mods all at the same time.</p>
+  <div class="table-wrap"><table class="mod-table"><thead><tr><th>Setting</th><th>Recommended value</th></tr></thead><tbody><tr><td>Resolution</td><td><code>1280x720</code></td></tr><tr><td>Executable</td><td><code>nvse_loader.exe</code> after xNVSE is installed</td></tr><tr><td>Wine / Proton</td><td>Proton 10 ARM64EC</td></tr><tr><td>Emulator</td><td>FEXCore</td></tr><tr><td>Renderer</td><td>DXVK</td></tr><tr><td>Driver</td><td>Current stable Turnip driver for your device</td></tr><tr><td>Present mode</td><td>Mailbox</td></tr><tr><td>Frame target</td><td>60 FPS</td></tr><tr><td>Frame generation</td><td>Off</td></tr><tr><td>Storage</td><td>Internal storage when possible</td></tr></tbody></table></div>
+  <aside class="callout warn"><strong>Proton 11 ARM64EC warning</strong><div>Use Proton 10 ARM64EC for the normal guide target. <a href="https://github.com/GameNative/proton-wine/releases" target="_blank" rel="noopener">GameNative Proton Wine releases</a> currently mark Proton 11 ARM64EC builds as testing-only and warn about instability or crashes. Test Proton 11 only when you are deliberately comparing Proton versions.</div></aside>
+</section>
+<section>
+  <h2>Reference GameNative profile</h2>
+  <p>This is the current reference profile used for testing. Treat it as a starting point, not a law.</p>
+  <div class="table-wrap"><table class="mod-table"><thead><tr><th>Area</th><th>Value</th></tr></thead><tbody><tr><td>Screen size</td><td><code>1280x720</code></td></tr><tr><td>Container</td><td><code>bionic</code></td></tr><tr><td>Wine version</td><td><code>proton-10.0-arm64ec-2</code></td></tr><tr><td>Emulator</td><td><code>FEXCore</code></td></tr><tr><td>FEXCore version</td><td><code>2512</code></td></tr><tr><td>Graphics driver</td><td><code>wrapper</code></td></tr><tr><td>Turnip version</td><td><code>turnip26.0.0_R8</code></td></tr><tr><td>Vulkan version</td><td><code>1.3</code></td></tr><tr><td>DX wrapper</td><td><code>dxvk</code></td></tr><tr><td>DXVK version</td><td><code>2.6.1-gplasync</code></td></tr><tr><td>DXVK async</td><td>On</td></tr><tr><td>Audio</td><td>PulseAudio</td></tr><tr><td>Pulse latency</td><td><code>144</code></td></tr><tr><td>Main CPU list</td><td><code>0,1,2,3,4,5,6</code></td></tr><tr><td>WoW64 CPU list</td><td><code>4,5,6,7</code></td></tr><tr><td>Input</td><td>Shooter/controller setup</td></tr></tbody></table></div>
+  <h3>Environment variables</h3>
+  <pre><code>WRAPPER_MAX_IMAGE_COUNT=0 ZINK_DESCRIPTORS=lazy ZINK_DEBUG=compact MESA_SHADER_CACHE_DISABLE=false MESA_SHADER_CACHE_MAX_SIZE=1024MB mesa_glthread=true WINEESYNC=1 MESA_VK_WSI_PRESENT_MODE=mailbox TU_DEBUG=noconform DXVK_FRAME_RATE=60 PULSE_LATENCY_MSEC=144</code></pre>
+</section>
+<section>
+  <h2>DML setup</h2>
+  <p>Create a fresh profile in <a href="https://github.com/CyberShonk/DroidModLoader" target="_blank" rel="noopener">Droid Mod Loader</a> for New Vegas.</p>
+  <ol>
+    <li>Open Droid Mod Loader.</li>
+    <li>Create or select a Fallout: New Vegas profile.</li>
+    <li>Name it <code>Pocket Mojave</code>.</li>
+    <li>Set the deployment target to the game's <code>Data</code> folder.</li>
+    <li>Confirm that the target contains <code>FalloutNV.esm</code>.</li>
+    <li>Do not select the game root as the Data target.</li>
+    <li>Install mods in the order shown in the mod list.</li>
+  </ol>
+  <div class="table-wrap"><table class="mod-table"><thead><tr><th>Order type</th><th>What it controls</th></tr></thead><tbody><tr><td>Mod priority</td><td>Loose file conflicts. Higher priority wins loose file overwrites.</td></tr><tr><td>Plugin order</td><td>ESM and ESP load order. This controls record conflicts and masters.</td></tr></tbody></table></div>
+  <aside class="callout warn"><strong>Do not mix these up</strong><div>A mod can be in one place in the DML mod list and have a plugin in a different place in the plugin list. They solve different problems.</div></aside>
+</section>
+<section>
+  <h2>BethINI Pie</h2>
+  <p>Use <a href="https://www.nexusmods.com/site/mods/631" target="_blank" rel="noopener">BethINI Pie</a> to set clean INI values before the mod list gets bigger.</p>
+  <ol>
+    <li>Run the New Vegas launcher once in the GameNative prefix so the INI files exist.</li>
+    <li>Open BethINI Pie on PC or inside a Windows environment that can see the same New Vegas INI files.</li>
+    <li>Select Fallout: New Vegas.</li>
+    <li>Use <strong>BethPresets</strong>.</li>
+    <li>Choose <strong>Medium</strong>.</li>
+    <li>Set texture quality to <strong>max quality</strong>. Do not leave texture mip skip on a low preset.</li>
+    <li>Keep resolution at <code>1280x720</code> for the guide target.</li>
+    <li>Save the INIs.</li>
+  </ol>
+  <aside class="callout good"><strong>Recommended audio setting</strong><div>Enable audio multithreading. It can help New Vegas avoid small audio stalls on CPU-limited setups.</div></aside>
+  <aside class="callout warn"><strong>Audio cache caution</strong><div>The audio cache settings can reduce loading stutter for some setups, but they can also be unstable in Windows containers. Change them only after the guide works, and keep notes so you can revert.</div></aside>
+  <h3>Suggested FalloutCustom.ini audio block</h3>
+  <pre><code>[Audio]
+bMultiThreadAudio=1
+bUseAudioDebugInformation=0
+; Optional test only. If audio gets unstable, remove these two lines.
+iAudioCacheSize=16384
+iMaxSizeForCachedSound=2048</code></pre>
+  <section class="check-card"><h3>After setup check</h3><ol><li>Launch with no mods after BethINI Pie saves the INIs.</li><li>Start or load the Doc Mitchell test save.</li><li>Walk outside, save, quit, and reload.</li><li>Do not install mods until this still works.</li></ol></section>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Built for Android handheld New Vegas, GameNative, and <a href="https://github.com/CyberShonk/DroidModLoader" target="_blank" rel="noopener">Droid Mod Loader</a>.</p>
+    <p class="small">This guide is unofficial and does not redistribute any game files or mods. Read each mod page before installing.</p>
+  </div>
+</footer>
+<script src="copy.js"></script>
+</body>
+</html>

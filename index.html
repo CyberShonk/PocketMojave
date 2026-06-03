@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Shonk's Pocket Mojave</title>
+  <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap header-grid">
+    <a class="brand" href="index.html">Shonk's Pocket Mojave</a>
+    <button class="nav-toggle" aria-label="Toggle navigation" onclick="document.body.classList.toggle('nav-open')">Menu</button>
+    <nav class="site-nav" aria-label="Main navigation"><a class="active" href="index.html">Home</a><a class="" href="setup.html">Setup</a><a class="" href="mods.html">Mod List</a><a class="" href="load-order.html">Load Order</a><a class="" href="avoid.html">Avoid</a><a class="" href="report.html">Reports</a></nav>
+  </div>
+</header>
+<main class="wrap page">
+
+<section class="hero">
+  <h1>Shonk's Pocket Mojave</h1>
+  <p class="subtitle">A mobile-friendly Fallout: New Vegas guide for Android handhelds, <a href="https://github.com/utkarshdalal/GameNative" target="_blank" rel="noopener">GameNative</a>, and <a href="https://github.com/CyberShonk/DroidModLoader" target="_blank" rel="noopener">Droid Mod Loader</a>.</p>
+  <p>This is a living guide. The goal is simple: install the best core New Vegas mods, keep the setup easy to understand, and make Android modding less like copying files in the dark.</p>
+  <div class="actions">
+    <a class="button" href="setup.html">Start setup</a>
+    <a class="button secondary" href="mods.html">Open mod list</a>
+    <a class="button secondary" href="load-order.html">Load order help</a>
+  </div>
+</section>
+<section class="grid">
+  <article class="card"><h2>Built for handhelds</h2><p>Targets Android phones and handhelds first. Desktop guides are useful, but mobile has different storage, driver, and testing problems.</p></article>
+  <article class="card"><h2>DML first</h2><p>Mod installation is written around Droid Mod Loader, with PC tools used only where they still make sense.</p></article>
+  <article class="card"><h2>No LOD pass yet</h2><p>LOD generation and large visual toolchains are separate projects. This guide keeps them out until they have a clean mobile path.</p></article>
+</section>
+<section>
+  <h2>Before you start</h2>
+  <p>Read the guide sections in order. Do not skip the vanilla test because the game opened once.</p>
+  <div class="table-wrap"><table class="mod-table"><thead><tr><th>Requirement</th><th>Notes</th></tr></thead><tbody><tr><td>Game</td><td>Fallout: New Vegas Ultimate Edition</td></tr><tr><td>Platform</td><td>Android through GameNative or a similar Windows-container app</td></tr><tr><td>Mod manager</td><td><a href="https://github.com/CyberShonk/DroidModLoader" target="_blank" rel="noopener">Droid Mod Loader</a></td></tr><tr><td>Main target</td><td>Handheld or phone play</td></tr><tr><td>Downloads</td><td>Manual downloads from Nexus, ModDB, GitHub, or the mod page listed</td></tr><tr><td>Root tools</td><td>Installed outside normal DML Data deployment when needed</td></tr></tbody></table></div>
+  <section class="check-card"><h3>Vanilla check</h3><ol><li>Launch Fallout: New Vegas with no mods.</li><li>Start a new game and reach Doc Mitchell's house.</li><li>Make a manual save.</li><li>Quit the game completely.</li><li>Relaunch and load that save.</li></ol></section>
+</section>
+<section>
+  <h2>Guide pages</h2>
+  <div class="grid">
+    <article class="card"><h3><a href="setup.html">Setup</a></h3><p>GameNative, Proton, DML profile setup, and BethINI Pie.</p></article>
+    <article class="card"><h3><a href="mods.html">Mod List</a></h3><p>Root tools, utilities, fixes, optional meshes, UI, gameplay, and weather.</p></article>
+    <article class="card"><h3><a href="load-order.html">Load Order</a></h3><p>LOOT walkthrough, DML plugin sorting, and copyable starter files.</p></article>
+    <article class="card"><h3><a href="avoid.html">Avoid</a></h3><p>Tools and mod categories that are not a good fit for this mobile guide.</p></article>
+    <article class="card"><h3><a href="report.html">Reports</a></h3><p>Tester report format and troubleshooting notes.</p></article>
+  </div>
+</section>
+<section>
+  <h2>Credits</h2>
+  <p>Shonk / SeanBottoms, SavageTheUnicorn, EmOkono, 420FalloutMac, and Deno46.</p>
+  <p>Useful references: <a href="https://vivanewvegas.moddinglinked.com/" target="_blank" rel="noopener">Viva New Vegas</a>, <a href="https://github.com/utkarshdalal/GameNative" target="_blank" rel="noopener">GameNative</a>, and <a href="https://github.com/CyberShonk/DroidModLoader" target="_blank" rel="noopener">Droid Mod Loader</a>.</p>
+</section>
+
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Built for Android handheld New Vegas, GameNative, and <a href="https://github.com/CyberShonk/DroidModLoader" target="_blank" rel="noopener">Droid Mod Loader</a>.</p>
+    <p class="small">This guide is unofficial and does not redistribute any game files or mods. Read each mod page before installing.</p>
+  </div>
+</footer>
+<script src="copy.js"></script>
+</body>
+</html>
