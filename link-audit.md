@@ -3,13 +3,12 @@
 ## Internal links
 
 - avoid.html
-- changelog.html
 - index.html
 - load-order.html
 - mods.html
 - report.html
 - setup.html
-- assets/site.css
+- styles.css
 
 ## Missing internal files
 
@@ -108,4 +107,4 @@ None
 
 ## Layout note
 
-This Mojave site uses the same static layout structure and CSS file style as Shonk's Pocket Wastelands while keeping the New Vegas guide content separate. Tables were removed from the visible pages so the site does not stretch on mobile browsers.
+This Mojave site uses the same static layout style as Shonk's Pocket Wastelands while keeping the New Vegas guide content separate.
