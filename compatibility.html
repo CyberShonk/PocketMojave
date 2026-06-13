@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compatibility | Shonk's Pocket Mojave</title>
+  <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
+  <link rel="stylesheet" href="assets/site.css?v=9">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Shonk's Pocket Mojave</a>
+      <nav class="nav" aria-label="Main navigation">
+<a href="index.html" class="">Home</a>
+<a href="setup.html" class="">Setup</a>
+<a href="mods.html" class="">Mod List</a>
+<a href="load-order.html" class="">Load Order</a>
+<a href="avoid.html" class="">Avoid</a>
+<a href="changelog.html" class="">Changelog</a>
+<a href="report.html" class="">Reports</a>
+<a href="compatibility.html" class="active">Compatibility</a>
+<a href="glossary.html" class="">Glossary</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+
+<section class="hero">
+  <h1>Device Compatibility Submissions</h1>
+  <p class="lead">Help broaden Android compatibility testing with reports that include exact device, driver, GameNative, DML, and compatibility-layer versions.</p>
+</section>
+<section class="guide-switcher" aria-label="Guide picker">
+  <span class="guide-switcher-label">Guide picker</span>
+  <a class="guide-chip current" href="/PocketMojave/">
+    <strong>Shonk's Pocket Mojave</strong>
+    <span>New Vegas on Android</span>
+  </a>
+  <a class="guide-chip" href="/PocketWastelands/">
+    <strong>Shonk's Pocket Wastelands</strong>
+    <span>TTW on Android</span>
+  </a>
+</section>
+<div class="callout warning learning-card">
+  <h3>Compatibility is not a promise</h3>
+  <p>Listed results depend on game version, mod list, driver version, GameNative version, DML version, storage setup, and user configuration. Do not treat one result as a guarantee for every device or every future version.</p>
+</div>
+<h2>What counts as proven working?</h2>
+<ul class="checkpoint-list">
+  <li>The game launches from GameNative.</li>
+  <li>The main menu loads.</li>
+  <li>The guide target reaches Goodsprings or another stable New Vegas start area.</li>
+  <li>The user can play for at least 15 minutes.</li>
+  <li>Crashes, graphical bugs, audio bugs, input bugs, thermal behavior, and FPS are reported honestly.</li>
+  <li>The report includes enough version details for another user to reproduce the setup.</li>
+</ul>
+<h2>Compatibility list</h2>
+<p class="layout-note">The table links to JSON config files instead of repeating every GameNative field in the table.</p>
+<div class="table-scroll">
+<table>
+  <thead><tr><th>Device</th><th>Chipset</th><th>Guide</th><th>GameNative profile</th><th>DXVK</th><th>FEXCore</th><th>Turnip/driver</th><th>Status</th><th>Last tested</th><th>Notes</th></tr></thead>
+  <tbody>
+    <tr>
+      <td>Snapdragon 8 Gen 2 device</td>
+      <td>Snapdragon 8 Gen 2</td>
+      <td>Pocket Mojave</td>
+      <td><a href="assets/profiles/snapdragon-8-gen-2-pocket-mojave.json">Snapdragon 8 Gen 2 profile JSON</a></td>
+      <td>2.6.1-gplasync</td>
+      <td>2604</td>
+      <td>turnip26.0.0_R8 / Vulkan 1.3</td>
+      <td>Verified working</td>
+      <td>2026-06-11</td>
+      <td>Verified working reference profile for Pocket Mojave. Use the memory warning before copying the config to lower-RAM devices.</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<div class="callout warning learning-card">
+  <h3>Memory warning</h3>
+  <p>Use 2 GB memory and 2 GB video memory unless your Android device has 16 GB of RAM. If your device has 16 GB of RAM, you can leave the memory setting at 4 GB. Lower-memory devices may crash, stutter, or fail to launch if the profile reserves too much memory.</p>
+</div>
+<h2>Status labels</h2>
+<div class="card-grid">
+  <article class="card"><h3>Verified working</h3><p>Launch, menu, in-game load, and 15-minute play test passed with useful version details.</p></article>
+  <article class="card"><h3>Working with issues</h3><p>Playable, but crashes, graphics, audio, input, heat, or performance problems are documented.</p></article>
+  <article class="card"><h3>Boots only</h3><p>The game opens or reaches the menu, but gameplay is not proven.</p></article>
+  <article class="card"><h3>Unstable</h3><p>Runs sometimes, but crashes or breaks often enough that it should not be called working.</p></article>
+  <article class="card"><h3>Not working</h3><p>Fails to launch, fails to reach the menu, or cannot load into the required start area.</p></article>
+  <article class="card"><h3>Needs retest</h3><p>The report is old, incomplete, or affected by changed GameNative, Turnip, DML, DXVK, Proton/Wine, or FEXCore versions.</p></article>
+</div>
+<h2>What to submit</h2>
+<p>Submit reports through the <a href="report.html">Reports</a> page. Include screenshots when useful, but write the version numbers in text too.</p>
+<pre>Device name:
+Chipset / SoC:
+RAM:
+Android version:
+Driver / Turnip version:
+Vulkan version, if known:
+Storage type, if known:
+
+Guide tested: Pocket Mojave / Pocket Wastelands
+Game source: Steam / GOG / Epic
+Clean install or existing modded install:
+
+GameNative version or build:
+Profile JSON used:
+Container type:
+Proton/Wine version:
+FEXCore version:
+DXVK version:
+Resolution:
+Present mode:
+FPS cap:
+Audio settings:
+CPU list:
+WoW64 CPU list:
+Environment variables:
+GOG/GameNative registry notice applied: yes / no / not GOG
+Launcher inside GameNative has greyed-out options, missing Play button, or install prompt: yes / no
+
+Droid Mod Loader version:
+Shared storage or app storage:
+Deployment mode:
+Profile used, if applicable:
+
+Does the game launch?
+Can you reach the main menu?
+Can you load into the guide start area?
+Can you play for at least 15 minutes?
+Any crashes?
+Any graphical bugs?
+Any audio bugs?
+Any input/controller bugs?
+Approximate FPS:
+Battery/thermal behavior:
+Evidence links/screenshots/logs:
+</pre>
+<h2>What not to submit as working</h2>
+<ul>
+  <li>A report that only says "it works" with no version numbers.</li>
+  <li>A setup that only opens the launcher but never loads in-game.</li>
+  <li>A result from a different GameNative build, DML version, or driver version without saying so.</li>
+  <li>A result where the game only runs once and then crashes on relaunch.</li>
+</ul>
+
+<nav class="page-nav" aria-label="Page navigation">
+  <a class="page-nav-link prev" href="report.html"><span>&larr; Previous</span><strong>Reports</strong></a>
+  <a class="page-nav-link next" href="glossary.html"><span>Next &rarr;</span><strong>Glossary</strong></a>
+</nav>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      Built for Android handheld New Vegas, <a href="https://github.com/utkarshdalal/GameNative">GameNative</a>, and <a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a>.
+      <br>This guide is unofficial and does not redistribute any game files or mods. Read each mod page before installing.
+    </div>
+  </footer>
+</body>
+</html>

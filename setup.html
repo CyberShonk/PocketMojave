@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Setup | Shonk's Pocket Mojave</title>
   <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=9">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">Shonk's Pocket Mojave</a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html" class="">Home</a>
+<a href="index.html" class="">Home</a>
 <a href="setup.html" class="active">Setup</a>
 <a href="mods.html" class="">Mod List</a>
 <a href="load-order.html" class="">Load Order</a>
 <a href="avoid.html" class="">Avoid</a>
 <a href="changelog.html" class="">Changelog</a>
 <a href="report.html" class="">Reports</a>
+<a href="compatibility.html" class="">Compatibility</a>
+<a href="glossary.html" class="">Glossary</a>
       </nav>
     </div>
   </header>
@@ -28,16 +30,45 @@
   <h1>Setup</h1>
   <p class="lead">Get the game and tools working before installing mods. This keeps problems easy to find.</p>
 </section>
-
+<section class="guide-switcher" aria-label="Guide picker">
+  <span class="guide-switcher-label">Guide picker</span>
+  <a class="guide-chip current" href="/PocketMojave/">
+    <strong>Shonk's Pocket Mojave</strong>
+    <span>New Vegas on Android</span>
+  </a>
+  <a class="guide-chip" href="/PocketWastelands/">
+    <strong>Shonk's Pocket Wastelands</strong>
+    <span>TTW on Android</span>
+  </a>
+</section>
+<h2>Before you start</h2>
+<div class="callout notice learning-card">
+  <h3>GameNative build note</h3>
+  <p>If custom games or the expected drive do not appear, re-check the GameNative build you installed before changing random settings. The home page explains the modern prerelease limitation.</p>
+</div>
+<div class="callout notice learning-card">
+  <h3>New to these terms?</h3>
+  <p>Use the <a href="glossary.html">Glossary</a> when a term is unclear. Do not guess at settings like DXVK, FEXCore, Turnip, present mode, shared storage, or plugin order.</p>
+</div>
+<h2>How to troubleshoot setup</h2>
+<ul class="troubleshooting-list">
+  <li>Change one thing at a time, then test again.</li>
+  <li>Write down exact version numbers before changing GameNative, Proton/Wine, FEXCore, DXVK, Turnip, DML, or driver settings.</li>
+  <li>Test vanilla before adding mods. A modded crash report is not useful if the unmodded game never launched.</li>
+  <li>Keep screenshots of GameNative settings, DML profile settings, deployment results, and plugin output.</li>
+  <li>Separate the problem into one layer: GameNative, the game install, DML, the mod list, the load order, or INI settings.</li>
+</ul>
 <h2>GameNative setup</h2>
 <p>Use a simple GameNative setup first. Do not change drivers, wrappers, resolution, and mods all at the same time.</p>
+
 <div class="card-grid">
+  <article class="card"><h3>GameNative build</h3><p>GameNative 1.0.0 latest release.</p></article>
   <article class="card"><h3>Resolution</h3><p><code>1280x720</code></p></article>
   <article class="card"><h3>Executable</h3><p><code>nvse_loader.exe</code> after xNVSE is installed.</p></article>
   <article class="card"><h3>Wine / Proton</h3><p>Proton 10 ARM64EC.</p></article>
   <article class="card"><h3>Emulator</h3><p>FEXCore.</p></article>
   <article class="card"><h3>Renderer</h3><p>DXVK.</p></article>
-  <article class="card"><h3>Driver</h3><p>Current stable Turnip driver for your device.</p></article>
+  <article class="card"><h3>Driver</h3><p>Turnip driver matched to your device.</p></article>
   <article class="card"><h3>Present mode</h3><p>Mailbox.</p></article>
   <article class="card"><h3>Frame target</h3><p>60 FPS.</p></article>
   <article class="card"><h3>Storage</h3><p>Shared storage outside GameNative App Storage. Internal shared storage is preferred when possible.</p></article>
@@ -46,22 +77,64 @@
   <h3>Proton 11 ARM64EC warning</h3>
   <p>Use Proton 10 ARM64EC for the normal guide target. <a href="https://github.com/GameNative/proton-wine/releases">GameNative Proton Wine releases</a> currently mark Proton 11 ARM64EC builds as testing-only and warn about instability or crashes. Test Proton 11 only when you are deliberately comparing Proton versions.</p>
 </div>
-
-<h2>Reference GameNative profile</h2>
-<p>This is the current reference profile used for testing. Treat it as a starting point, not a law.</p>
-<div class="card-grid">
-  <article class="card"><h3>Container</h3><p><code>bionic</code></p></article>
-  <article class="card"><h3>Wine</h3><p><code>proton-10.0-arm64ec-2</code></p></article>
-  <article class="card"><h3>FEXCore</h3><p><code>2512</code></p></article>
-  <article class="card"><h3>Turnip</h3><p><code>turnip26.0.0_R8</code> with Vulkan <code>1.3</code>.</p></article>
-  <article class="card"><h3>DXVK</h3><p><code>2.6.1-gplasync</code> with async enabled.</p></article>
-  <article class="card"><h3>Audio</h3><p>PulseAudio with latency around <code>144</code>.</p></article>
-  <article class="card"><h3>Main CPU list</h3><p><code>0,1,2,3,4,5,6</code></p></article>
-  <article class="card"><h3>WoW64 CPU list</h3><p><code>4,5,6,7</code></p></article>
+<h2>Device and version profile</h2>
+<p>Pick the device/profile closest to your setup. The values below are test notes for GameNative and the compatibility layers, not a guarantee that every matching device will work.</p>
+<section class="profile-selector" aria-label="Device and version profile selector">
+  <div class="profile-control">
+    <label for="device-profile-select">Select your device/profile:</label>
+    <select id="device-profile-select">
+      <option value="sd8g2">Snapdragon 8 Gen 2</option>
+      <option value="rp5">Retroid Pocket 5</option>
+      <option value="rp6">Retroid Pocket 6</option>
+      <option value="rpflip2">Retroid Pocket Flip 2</option>
+      <option value="other">Other Android ARM chip</option>
+    </select>
+  </div>
+  <article class="card profile-summary" id="profile-summary" aria-live="polite"></article>
+</section>
+<script>
+const pocketGuideProfiles = {"sd8g2": {"name": "Snapdragon 8 Gen 2", "status": "Verified working", "json": "assets/profiles/snapdragon-8-gen-2-pocket-mojave.json", "fields": {"Guide target": "Pocket Mojave / Fallout: New Vegas", "GameNative build": "GameNative 1.0.0 latest release", "Container": "bionic", "Proton/Wine": "proton-10.0-arm64ec-2", "FEXCore": "2604", "DXVK": "2.6.1-gplasync", "Turnip/driver": "turnip26.0.0_R8", "Vulkan": "1.3", "Resolution": "1280x720", "Present mode": "Mailbox", "FPS target": "60 FPS", "Audio": "PulseAudio, latency around 144", "CPU list": "0,1,2,3,4,5,6", "WoW64 CPU list": "4,5,6,7", "Last tested": "2026-06-11"}, "environment": "WRAPPER_MAX_IMAGE_COUNT=0 ZINK_DESCRIPTORS=lazy ZINK_DEBUG=compact MESA_SHADER_CACHE_DISABLE=false MESA_SHADER_CACHE_MAX_SIZE=1024MB mesa_glthread=true WINEESYNC=1 MESA_VK_WSI_PRESENT_MODE=mailbox TU_DEBUG=noconform DXVK_FRAME_RATE=60 PULSE_LATENCY_MSEC=144 DXVK_HUD=fps,frametimes,drawcalls,compiler", "notes": "Verified working reference profile for Pocket Mojave on Snapdragon 8 Gen 2. Use the memory warning below before copying this profile to a lower-RAM device."}, "rp5": {"name": "Retroid Pocket 5", "status": "Not verified yet", "json": "assets/profiles/retroid-pocket-5-mojave.json", "fields": {"Guide target": "Pocket Mojave / Fallout: New Vegas", "Status": "Not verified yet"}, "environment": "Not verified yet", "notes": "Placeholder only. Do not list this device as working until a complete compatibility report is submitted."}, "rp6": {"name": "Retroid Pocket 6", "status": "Not verified yet", "json": "assets/profiles/retroid-pocket-6-mojave.json", "fields": {"Guide target": "Pocket Mojave / Fallout: New Vegas", "Status": "Not verified yet"}, "environment": "Not verified yet", "notes": "Placeholder only. Do not list this device as working until a complete compatibility report is submitted."}, "rpflip2": {"name": "Retroid Pocket Flip 2", "status": "Not verified yet", "json": "assets/profiles/retroid-pocket-flip-2-mojave.json", "fields": {"Guide target": "Pocket Mojave / Fallout: New Vegas", "Status": "Not verified yet"}, "environment": "Not verified yet", "notes": "Placeholder only. Do not list this device as working until a complete compatibility report is submitted."}, "other": {"name": "Other Android ARM chip", "status": "Not verified yet", "json": "assets/profiles/other-android-arm-chip-mojave.json", "fields": {"Guide target": "Pocket Mojave / Fallout: New Vegas", "Status": "Not verified yet"}, "environment": "Not verified yet", "notes": "Placeholder only. Do not list this device as working until a complete compatibility report is submitted."}};
+function renderPocketGuideProfile() {
+  const select = document.getElementById('device-profile-select');
+  const panel = document.getElementById('profile-summary');
+  if (!select || !panel) return;
+  const profile = pocketGuideProfiles[select.value] || pocketGuideProfiles.sd8g2;
+  const fields = Object.entries(profile.fields).map(([key, value]) => `<div class="profile-field"><strong>${key}</strong><span>${value}</span></div>`).join('');
+  panel.innerHTML = `<div class="profile-title"><h3>${profile.name}</h3><span class="badge">${profile.status}</span></div>` +
+    `<p><a href="${profile.json}">View profile JSON</a></p>` +
+    `<div class="profile-fields">${fields}</div>` +
+    `<h3>Environment variables</h3><pre class="profile-env">${profile.environment}</pre>` +
+    `<div class="callout warning"><h3>Memory warning</h3><p>Use 2 GB memory and 2 GB video memory unless your Android device has 16 GB of RAM. If your device has 16 GB of RAM, you can leave the memory setting at 4 GB. Lower-memory devices may crash, stutter, or fail to launch if the profile reserves too much memory.</p><p>More memory is not automatically better on Android. The system, GameNative, Wine/Proton, the graphics driver, and the game all share limited RAM.</p></div>` +
+    `<p><strong>Notes:</strong> ${profile.notes}</p>`;
+}
+document.addEventListener('DOMContentLoaded', () => {
+  const select = document.getElementById('device-profile-select');
+  if (select) select.addEventListener('change', renderPocketGuideProfile);
+  renderPocketGuideProfile();
+});
+</script>
+<div class="callout notice learning-card">
+  <h3>GOG launcher notice inside GameNative</h3>
+  <p>If the Fallout: New Vegas launcher inside the GameNative Windows container has greyed-out options, hides the Play button, or says the game needs to be installed even though the files are already on the device, the container may be missing the Bethesda registry entry.</p>
+  <ol>
+    <li>Download <a href="https://support.gog.com/hc/en-us/articles/115003627285-Oblivion-Greyed-out-options-or-missing-Play-button-in-the-launcher?product=gog">GOG's beth_registry.zip fix</a>.</li>
+    <li>Extract <code>beth_registry.cmd</code>.</li>
+    <li>Place <code>beth_registry.cmd</code> in the game root inside the container, next to <code>FalloutNV.exe</code>.</li>
+    <li>Run it from that folder and allow it to update the registry.</li>
+    <li>Open the launcher again. If the options are still greyed out, report the GameNative build, game source, and exact folder path.</li>
+  </ol>
+  <p>This is not a normal PC setup step. Use it only when the game is already on the Android device and the launcher inside GameNative acts like the game is not installed.</p>
 </div>
-<h3>Environment variables</h3>
-<pre>WRAPPER_MAX_IMAGE_COUNT=0 ZINK_DESCRIPTORS=lazy ZINK_DEBUG=compact MESA_SHADER_CACHE_DISABLE=false MESA_SHADER_CACHE_MAX_SIZE=1024MB mesa_glthread=true WINEESYNC=1 MESA_VK_WSI_PRESENT_MODE=mailbox TU_DEBUG=noconform DXVK_FRAME_RATE=60 PULSE_LATENCY_MSEC=144</pre>
 
+<div class="callout notice learning-card">
+  <h3>Checkpoint: GameNative works before DML</h3>
+  <ul class="checkpoint-list">
+    <li>The game launches in GameNative before mods are installed.</li>
+    <li>You can reach the main menu.</li>
+    <li>You can start a new game and reach Doc Mitchell's house.</li>
+    <li>If this fails, stop here. Fix GameNative, the game install, or the profile before adding mods.</li>
+  </ul>
+</div>
 <h2>DML setup</h2>
 <p>Create a fresh profile in <a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a> for New Vegas.</p>
 <div class="callout warning">
@@ -80,12 +153,19 @@
   <li>Do not select the game root as the Data target.</li>
   <li>Install mods in the order shown in the mod list.</li>
 </ol>
-<div class="card-grid">
-  <article class="card"><h3>Mod priority</h3><p>Controls loose file conflicts.</p></article>
-  <article class="card"><h3>Plugin order</h3><p>Controls ESM and ESP load order.</p></article>
+<div class="callout warning">
+  <h3>Plugin order and mod priority are not the same thing</h3>
+  <p>Plugin order controls ESM and ESP loading. Mod priority controls loose file conflicts. DML has to handle both, but they are different lists.</p>
 </div>
-<p>Do not treat mod priority and plugin order as the same thing.</p>
-
+<div class="callout notice learning-card">
+  <h3>Checkpoint: DML deployment target</h3>
+  <ul class="checkpoint-list">
+    <li>DML shows a Pocket Mojave profile.</li>
+    <li>The deployment target is the game <code>Data</code> folder in shared storage.</li>
+    <li>The target folder contains <code>FalloutNV.esm</code>.</li>
+    <li>If DML points at the game root or GameNative App Storage, stop and fix the target before installing mods.</li>
+  </ul>
+</div>
 <h2>BethINI Pie</h2>
 <p>Use <a href="https://www.nexusmods.com/site/mods/631">BethINI Pie</a> to create simple, predictable INI settings before you start piling on mods.</p>
 <ol>
@@ -103,7 +183,6 @@
   <h3>Audio cache caution</h3>
   <p>Audio multithreading is recommended. Audio cache tweaks can be unstable in Windows containers, so only change audio cache settings if you are deliberately testing audio problems.</p>
 </div>
-
 <h2>Tracking performance</h2>
 <ol>
   <li>Use the GameNative overlay first for a quick FPS check.</li>
@@ -112,7 +191,6 @@
   <li>Turn the DXVK HUD off after the benchmark.</li>
 </ol>
 <pre>DXVK_HUD=fps,frametimes,drawcalls,pipelines,memory</pre>
-
 
 <nav class="page-nav" aria-label="Page navigation">
   <a class="page-nav-link prev" href="index.html"><span>&larr; Previous</span><strong>Home</strong></a>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glossary | Shonk's Pocket Mojave</title>
+  <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
+  <link rel="stylesheet" href="assets/site.css?v=9">
+  
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Shonk's Pocket Mojave</a>
+      <nav class="nav" aria-label="Main navigation">
+<a href="index.html" class="">Home</a>
+<a href="setup.html" class="">Setup</a>
+<a href="mods.html" class="">Mod List</a>
+<a href="load-order.html" class="">Load Order</a>
+<a href="avoid.html" class="">Avoid</a>
+<a href="changelog.html" class="">Changelog</a>
+<a href="report.html" class="">Reports</a>
+<a href="compatibility.html" class="">Compatibility</a>
+<a href="glossary.html" class="active">Glossary</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+
+<section class="hero"><h1>Glossary</h1><p class="lead">Plain-language definitions for Android modding, GameNative, Droid Mod Loader, compatibility layers, and Bethesda modding terms used in these guides.</p></section>
+<div class="callout notice learning-card"><h3>How to use this page</h3><p>Use this when a setup step mentions a term you do not know. The definitions are written for Pocket Mojave, Pocket Wastelands, GameNative, DML, Fallout: New Vegas, and TTW instead of general PC modding.</p></div>
+<section class="card-grid">
+  <article class="card glossary-entry" id="android-arm">
+    <h3>Android ARM</h3>
+    <p><strong>Plain-language explanation:</strong> The phone or handheld uses an ARM processor instead of a normal desktop x86 Windows processor. Most Android gaming handhelds and phones are ARM devices.</p>
+    <p><strong>Why it matters:</strong> These guides use GameNative, FEXCore, Proton/Wine, and DXVK because Fallout: New Vegas and TTW are Windows games running on Android ARM hardware.</p>
+  </article>
+  <article class="card glossary-entry" id="app-storage">
+    <h3>App storage</h3>
+    <p><strong>Plain-language explanation:</strong> A private folder controlled by an Android app. Other apps usually cannot browse or edit it normally.</p>
+    <p><strong>Why it matters:</strong> If the game is trapped inside locked GameNative App Storage, DML may not be able to deploy files into the real Data folder.</p>
+  </article>
+  <article class="card glossary-entry" id="shared-storage">
+    <h3>Shared storage</h3>
+    <p><strong>Plain-language explanation:</strong> A normal Android storage location that file managers and other apps can reach, such as /storage/emulated/0/PcGames/.</p>
+    <p><strong>Why it matters:</strong> These guides prefer shared storage so both GameNative and DML can work with the same Fallout: New Vegas folder.</p>
+  </article>
+  <article class="card glossary-entry" id="gamenative">
+    <h3>GameNative</h3>
+    <p><strong>Plain-language explanation:</strong> The Android app used to create a Windows-like container and launch the Windows game executable.</p>
+    <p><strong>Why it matters:</strong> It is the layer that actually starts FalloutNV.exe or nvse_loader.exe on Android, so its build, container, driver, and storage behavior matter.</p>
+  </article>
+  <article class="card glossary-entry" id="custom-game">
+    <h3>Custom game</h3>
+    <p><strong>Plain-language explanation:</strong> A GameNative entry where you choose your own Windows executable instead of launching a built-in store/game shortcut.</p>
+    <p><strong>Why it matters:</strong> These guides rely on custom games so you can point GameNative at your New Vegas executable in shared storage.</p>
+  </article>
+  <article class="card glossary-entry" id="d-drive">
+    <h3>D: drive</h3>
+    <p><strong>Plain-language explanation:</strong> A Windows-style drive letter shown inside the container. It can point to files that are outside the fake C: drive.</p>
+    <p><strong>Why it matters:</strong> If D: drive access is missing, the container may not see the game folder path expected by the guide.</p>
+  </article>
+  <article class="card glossary-entry" id="droid-mod-loader-dml">
+    <h3>Droid Mod Loader / DML</h3>
+    <p><strong>Plain-language explanation:</strong> The Android mod manager used by these guides to import mod archives, deploy files, discover plugins, and write plugin/load order files.</p>
+    <p><strong>Why it matters:</strong> DML keeps Android-side mod management separate from GameNative, but it needs access to the correct New Vegas Data folder.</p>
+  </article>
+  <article class="card glossary-entry" id="proton">
+    <h3>Proton</h3>
+    <p><strong>Plain-language explanation:</strong> A Wine-based compatibility package commonly used to run Windows games outside normal Windows.</p>
+    <p><strong>Why it matters:</strong> The Proton/Wine version can change whether Fallout: New Vegas launches, crashes, or sees the right files inside GameNative.</p>
+  </article>
+  <article class="card glossary-entry" id="wine">
+    <h3>Wine</h3>
+    <p><strong>Plain-language explanation:</strong> The compatibility layer that provides Windows-like behavior for programs running on a non-Windows system.</p>
+    <p><strong>Why it matters:</strong> GameNative uses Wine/Proton pieces so Windows game files and tools can run inside an Android container.</p>
+  </article>
+  <article class="card glossary-entry" id="fexcore">
+    <h3>FEXCore</h3>
+    <p><strong>Plain-language explanation:</strong> The CPU translation layer used to run x86/x64 Windows game code on Android ARM hardware.</p>
+    <p><strong>Why it matters:</strong> The FEXCore version can affect launch success, crashes, and performance, so reports need the exact version.</p>
+  </article>
+  <article class="card glossary-entry" id="dxvk">
+    <h3>DXVK</h3>
+    <p><strong>Plain-language explanation:</strong> The layer that lets a Windows DirectX game draw graphics through Vulkan on Android.</p>
+    <p><strong>Why it matters:</strong> The DXVK version matters because the wrong build can cause crashes, missing graphics, poor frame pacing, or bad performance.</p>
+  </article>
+  <article class="card glossary-entry" id="vulkan">
+    <h3>Vulkan</h3>
+    <p><strong>Plain-language explanation:</strong> The graphics API used by the Android driver and DXVK path.</p>
+    <p><strong>Why it matters:</strong> Turnip and DXVK depend on Vulkan support, so graphics bugs need the Vulkan version when possible.</p>
+  </article>
+  <article class="card glossary-entry" id="turnip-driver">
+    <h3>Turnip driver</h3>
+    <p><strong>Plain-language explanation:</strong> A Mesa Vulkan driver commonly used for Adreno/Snapdragon graphics on Android gaming setups.</p>
+    <p><strong>Why it matters:</strong> Changing Turnip can fix one game and break another, so the exact driver version is part of every useful compatibility report.</p>
+  </article>
+  <article class="card glossary-entry" id="container">
+    <h3>Container</h3>
+    <p><strong>Plain-language explanation:</strong> The isolated Windows-like environment where GameNative runs the game. It has its own C: drive, registry, user folder, and settings.</p>
+    <p><strong>Why it matters:</strong> Container settings control what the game can see and how it runs. They are not identical to a normal Windows PC.</p>
+  </article>
+  <article class="card glossary-entry" id="bionic-container">
+    <h3>bionic container</h3>
+    <p><strong>Plain-language explanation:</strong> A GameNative container type based around Android bionic libraries.</p>
+    <p><strong>Why it matters:</strong> The guide’s reference profile uses bionic, so switching container type should be treated as a new test, not a small tweak.</p>
+  </article>
+  <article class="card glossary-entry" id="environment-variable">
+    <h3>Environment variable</h3>
+    <p><strong>Plain-language explanation:</strong> A text setting passed to the container or graphics layer before the game starts.</p>
+    <p><strong>Why it matters:</strong> Variables like DXVK_FRAME_RATE or PULSE_LATENCY_MSEC can change performance, audio, and graphics behavior.</p>
+  </article>
+  <article class="card glossary-entry" id="cpu-list">
+    <h3>CPU list</h3>
+    <p><strong>Plain-language explanation:</strong> The CPU cores assigned to the main game/container work.</p>
+    <p><strong>Why it matters:</strong> Wrong CPU assignment can hurt performance or stability, so reports should include the list used.</p>
+  </article>
+  <article class="card glossary-entry" id="wow64-cpu-list">
+    <h3>WoW64 CPU list</h3>
+    <p><strong>Plain-language explanation:</strong> The CPU cores assigned to 32-bit Windows-on-Windows behavior inside the compatibility stack.</p>
+    <p><strong>Why it matters:</strong> Fallout: New Vegas is a 32-bit game, so WoW64-related settings can affect how it runs.</p>
+  </article>
+  <article class="card glossary-entry" id="present-mode">
+    <h3>Present mode</h3>
+    <p><strong>Plain-language explanation:</strong> The way rendered frames are presented to the screen.</p>
+    <p><strong>Why it matters:</strong> Present mode affects latency, frame pacing, and stutter. The reference profile starts with Mailbox.</p>
+  </article>
+  <article class="card glossary-entry" id="mailbox-present-mode">
+    <h3>Mailbox present mode</h3>
+    <p><strong>Plain-language explanation:</strong> A Vulkan present mode that can reduce latency and smooth frame delivery when supported.</p>
+    <p><strong>Why it matters:</strong> The guide uses Mailbox as a tested starting point, but changing it should be recorded because it can affect stutter and heat.</p>
+  </article>
+  <article class="card glossary-entry" id="fps-cap">
+    <h3>FPS cap</h3>
+    <p><strong>Plain-language explanation:</strong> A limit on how many frames per second the game should render.</p>
+    <p><strong>Why it matters:</strong> New Vegas can behave badly at very high FPS. These guides start with 60 FPS to keep physics and frame pacing predictable.</p>
+  </article>
+  <article class="card glossary-entry" id="load-order">
+    <h3>Load order</h3>
+    <p><strong>Plain-language explanation:</strong> The order that ESM and ESP plugin files load in the game.</p>
+    <p><strong>Why it matters:</strong> A bad load order can undo fixes, break TTW, or cause crashes even when every mod file is installed correctly.</p>
+  </article>
+  <article class="card glossary-entry" id="plugin">
+    <h3>Plugin</h3>
+    <p><strong>Plain-language explanation:</strong> A Bethesda data file that changes game records. Common plugin types include ESM and ESP.</p>
+    <p><strong>Why it matters:</strong> Plugins are not the same as loose texture, mesh, or script files. They need correct load order.</p>
+  </article>
+  <article class="card glossary-entry" id="esp">
+    <h3>ESP</h3>
+    <p><strong>Plain-language explanation:</strong> A common plugin file type used by Fallout: New Vegas mods.</p>
+    <p><strong>Why it matters:</strong> ESPs usually need to be enabled and ordered. Too many or badly ordered ESPs can break the game.</p>
+  </article>
+  <article class="card glossary-entry" id="esm">
+    <h3>ESM</h3>
+    <p><strong>Plain-language explanation:</strong> A master plugin file. FalloutNV.esm, DLC masters, and TTW masters are examples.</p>
+    <p><strong>Why it matters:</strong> Masters normally load before ESP files. Missing or misordered masters can stop the game from launching.</p>
+  </article>
+  <article class="card glossary-entry" id="esl-espless">
+    <h3>ESL / ESPless</h3>
+    <p><strong>Plain-language explanation:</strong> ESL is a lightweight plugin format in newer Bethesda games; ESPless usually means a mod works without adding a plugin file.</p>
+    <p><strong>Why it matters:</strong> Fallout: New Vegas does not use ESL the same way Skyrim SE does, but ESPless New Vegas mods are useful because they reduce load-order pressure.</p>
+  </article>
+  <article class="card glossary-entry" id="mod-manager">
+    <h3>Mod manager</h3>
+    <p><strong>Plain-language explanation:</strong> A tool that installs, orders, enables, disables, or deploys mods. DML is the Android mod manager used by these guides.</p>
+    <p><strong>Why it matters:</strong> Manual file copying becomes hard to debug. A mod manager helps keep mod files and plugin order more reproducible.</p>
+  </article>
+  <article class="card glossary-entry" id="deployment">
+    <h3>Deployment</h3>
+    <p><strong>Plain-language explanation:</strong> The act of copying or linking enabled mod files into the game folder where the game can use them.</p>
+    <p><strong>Why it matters:</strong> DML deployment must target the real Data folder. Deploying to the wrong folder can look like the mod installed but do nothing in game.</p>
+  </article>
+  <article class="card glossary-entry" id="profile">
+    <h3>Profile</h3>
+    <p><strong>Plain-language explanation:</strong> A saved set of mod manager or GameNative settings for one guide setup.</p>
+    <p><strong>Why it matters:</strong> Separate profiles help keep Pocket Mojave, Pocket Wastelands, testing builds, and broken experiments from mixing together.</p>
+  </article>
+  <article class="card glossary-entry" id="overwrite">
+    <h3>Overwrite</h3>
+    <p><strong>Plain-language explanation:</strong> A file conflict where one mod places a file at the same path as another mod and wins because of priority/order.</p>
+    <p><strong>Why it matters:</strong> Overwrites are normal, but random overwrites can silently change textures, scripts, meshes, or config files.</p>
+  </article>
+  <article class="card glossary-entry" id="conflict">
+    <h3>Conflict</h3>
+    <p><strong>Plain-language explanation:</strong> A case where two mods try to change the same file or game record.</p>
+    <p><strong>Why it matters:</strong> Conflicts are why mod priority and load order matter. They can cause missing fixes, wrong visuals, or crashes.</p>
+  </article>
+  <article class="card glossary-entry" id="archive">
+    <h3>Archive</h3>
+    <p><strong>Plain-language explanation:</strong> A compressed mod download such as ZIP, 7Z, or RAR.</p>
+    <p><strong>Why it matters:</strong> DML imports archives, but some complex installer archives may need to be prepared on PC first.</p>
+  </article>
+  <article class="card glossary-entry" id="bsa">
+    <h3>BSA</h3>
+    <p><strong>Plain-language explanation:</strong> A Bethesda archive file that stores game assets such as meshes, textures, sounds, and scripts.</p>
+    <p><strong>Why it matters:</strong> Some tools decompress or alter BSA files. Run those tools carefully on PC before relying on the Android copy.</p>
+  </article>
+  <article class="card glossary-entry" id="ini-file">
+    <h3>INI file</h3>
+    <p><strong>Plain-language explanation:</strong> A plain text configuration file used by the game and many tools.</p>
+    <p><strong>Why it matters:</strong> Bad INI values can cause crashes, bad performance, missing audio, or broken display settings.</p>
+  </article>
+  <article class="card glossary-entry" id="bethini-pie">
+    <h3>BethINI Pie</h3>
+    <p><strong>Plain-language explanation:</strong> A tool for editing Bethesda INI files through a safer interface than hand-editing every setting.</p>
+    <p><strong>Why it matters:</strong> These guides use it to create predictable INI settings before troubleshooting mods or GameNative.</p>
+  </article>
+  <article class="card glossary-entry" id="ttw">
+    <h3>TTW</h3>
+    <p><strong>Plain-language explanation:</strong> Tale of Two Wastelands, a project that combines Fallout 3 into the Fallout: New Vegas engine.</p>
+    <p><strong>Why it matters:</strong> Pocket Wastelands is heavier and more complex than Pocket Mojave because TTW requires PC-side generation and extra plugin handling.</p>
+  </article>
+  <article class="card glossary-entry" id="the-best-of-times">
+    <h3>The Best of Times</h3>
+    <p><strong>Plain-language explanation:</strong> A respected TTW setup guide from ModdingLinked.</p>
+    <p><strong>Why it matters:</strong> Pocket Wastelands uses TTW concepts from that ecosystem but adapts them for Android, DML, and GameNative.</p>
+  </article>
+  <article class="card glossary-entry" id="viva-new-vegas">
+    <h3>Viva New Vegas</h3>
+    <p><strong>Plain-language explanation:</strong> A respected Fallout: New Vegas modding guide from ModdingLinked.</p>
+    <p><strong>Why it matters:</strong> Pocket Mojave follows the idea of a clean, stable foundation, but adapts it for Android and DML.</p>
+  </article>
+  <article class="card glossary-entry" id="crash-log">
+    <h3>Crash log</h3>
+    <p><strong>Plain-language explanation:</strong> A text file produced by a crash logger or tool after the game crashes.</p>
+    <p><strong>Why it matters:</strong> A crash log is often more useful than a screenshot because it can show the failing module or plugin context.</p>
+  </article>
+  <article class="card glossary-entry" id="stutter">
+    <h3>Stutter</h3>
+    <p><strong>Plain-language explanation:</strong> Uneven frame timing where the game pauses or jerks even if the average FPS looks acceptable.</p>
+    <p><strong>Why it matters:</strong> Android containers can show stutter from shader compilation, storage, drivers, CPU assignment, or INI settings.</p>
+  </article>
+  <article class="card glossary-entry" id="thermal-throttling">
+    <h3>Thermal throttling</h3>
+    <p><strong>Plain-language explanation:</strong> Performance loss caused by the device getting hot and slowing down the CPU or GPU to protect itself.</p>
+    <p><strong>Why it matters:</strong> A setup that works for five minutes may slow down later. Compatibility reports should mention heat and battery behavior when possible.</p>
+  </article>
+  <article class="card glossary-entry" id="verified-working">
+    <h3>Verified working</h3>
+    <p><strong>Plain-language explanation:</strong> A status for a device/profile that launched, reached the required start area, and played for at least 15 minutes with enough version details to reproduce it.</p>
+    <p><strong>Why it matters:</strong> This label should be conservative so users do not assume broad compatibility from a vague report.</p>
+  </article>
+  <article class="card glossary-entry" id="working-with-issues">
+    <h3>Working with issues</h3>
+    <p><strong>Plain-language explanation:</strong> A status for a setup that is playable but has documented crashes, graphics problems, audio bugs, heat, input issues, or performance limits.</p>
+    <p><strong>Why it matters:</strong> Partial success is useful, but it should not be mislabeled as fully verified.</p>
+  </article>
+  <article class="card glossary-entry" id="boots-only">
+    <h3>Boots only</h3>
+    <p><strong>Plain-language explanation:</strong> A status for a setup that opens or reaches the menu but has not proven real gameplay.</p>
+    <p><strong>Why it matters:</strong> A menu-only result is useful for debugging but not enough to list a device as working.</p>
+  </article>
+  <article class="card glossary-entry" id="needs-retest">
+    <h3>Needs retest</h3>
+    <p><strong>Plain-language explanation:</strong> A status for old or incomplete results, or results affected by new GameNative, DML, DXVK, FEXCore, Turnip, or guide changes.</p>
+    <p><strong>Why it matters:</strong> Retesting keeps the compatibility list honest when the software stack changes.</p>
+  </article>
+  <article class="card glossary-entry" id="gog-registry-notice">
+    <h3>GOG registry notice</h3>
+    <p><strong>Plain-language explanation:</strong> A notice for the case where a GOG Bethesda launcher inside GameNative cannot see the registry entry it expects.</p>
+    <p><strong>Why it matters:</strong> If the game files are already on Android but the launcher says the game is not installed, the registry fix may be needed inside the container.</p>
+  </article>
+  <article class="card glossary-entry" id="greyed-out-launcher-options">
+    <h3>Greyed-out launcher options</h3>
+    <p><strong>Plain-language explanation:</strong> A launcher state where the settings or Play button are unavailable because the launcher does not think the game is installed correctly.</p>
+    <p><strong>Why it matters:</strong> Inside GameNative, this can happen even when the files are present because the container registry is missing the expected Bethesda entry.</p>
+  </article>
+</section>
+<nav class="page-nav" aria-label="Page navigation">
+  <a class="page-nav-link prev" href="compatibility.html"><span>&larr; Previous</span><strong>Compatibility</strong></a>
+  <span class="page-nav-spacer" aria-hidden="true"></span>
+</nav>
+  </main>
+  <footer class="site-footer">
+    <div class="container">
+      Built for Android handheld New Vegas, <a href="https://github.com/utkarshdalal/GameNative">GameNative</a>, and <a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a>.
+      <br>This guide is unofficial and does not redistribute any game files or mods. Read each mod page before installing.
+    </div>
+  </footer>
+
+</body>
+</html>

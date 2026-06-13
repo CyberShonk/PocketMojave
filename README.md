@@ -11,5 +11,9 @@ Static GitHub Pages site for Shonk's Pocket Mojave, a Fallout: New Vegas on Andr
 - `avoid.html`
 - `changelog.html`
 - `report.html`
+- `compatibility.html`
+- `glossary.html`
 
 The site uses the same layout structure and CSS style as Shonk's Pocket Wastelands while keeping the Pocket Mojave guide content.
+
+- `assets/profiles/` stores small GameNative profile JSON files linked from the compatibility page.

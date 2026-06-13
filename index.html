@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Home | Shonk's Pocket Mojave</title>
   <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=9">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">Shonk's Pocket Mojave</a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html" class="active">Home</a>
+<a href="index.html" class="active">Home</a>
 <a href="setup.html" class="">Setup</a>
 <a href="mods.html" class="">Mod List</a>
 <a href="load-order.html" class="">Load Order</a>
 <a href="avoid.html" class="">Avoid</a>
 <a href="changelog.html" class="">Changelog</a>
 <a href="report.html" class="">Reports</a>
+<a href="compatibility.html" class="">Compatibility</a>
+<a href="glossary.html" class="">Glossary</a>
       </nav>
     </div>
   </header>
@@ -34,7 +36,6 @@
     <a class="button" href="load-order.html">Load order help</a>
   </div>
 </section>
-
 <section class="guide-switcher" aria-label="Guide picker">
   <span class="guide-switcher-label">Guide picker</span>
   <a class="guide-chip current" href="/PocketMojave/">
@@ -46,60 +47,53 @@
     <span>TTW on Android</span>
   </a>
 </section>
-
 <section class="card-grid">
-  <article class="card">
-    <h3>Built for handhelds</h3>
-    <p>Targets Android phones and handhelds first. Desktop guides are useful, but mobile has different storage, driver, and testing problems.</p>
-  </article>
-  <article class="card">
-    <h3>DML first</h3>
-    <p>Mod installation is written around <a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a>. PC tools are used only where they still make sense.</p>
-  </article>
-  <article class="card">
-    <h3>No LOD pass yet</h3>
-    <p>LOD generation and large visual toolchains are separate projects. This guide keeps them out until they have a clean mobile path.</p>
-  </article>
+  <article class="card"><h3>Built for handhelds</h3><p>Targets Android phones and handhelds first. Desktop guides are useful, but mobile has different storage, driver, and testing problems.</p></article>
+  <article class="card"><h3>DML first</h3><p>Mod installation is written around <a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a>. PC tools are used only where they still make sense.</p></article>
+  <article class="card"><h3>No LOD pass yet</h3><p>LOD generation and large visual toolchains are separate projects. This guide keeps them out until they have a clean mobile path.</p></article>
 </section>
-
+<div class="callout notice learning-card">
+  <h3>New to Android modding?</h3>
+  <p>Start with the vanilla check before installing mods. If a term does not make sense yet, use the <a href="glossary.html">Glossary</a> before changing settings.</p>
+</div>
 <h2>Before you start</h2>
+<div class="callout warning learning-card">
+  <h3>Before you start: use the correct GameNative build</h3>
+  <p>Use the current GameNative 1.0.0 standard APK/release path shown in this guide unless a later guide update says otherwise.</p>
+  <p>A specific older v1.0.0 prerelease modern Android 11+ APK caused problems for this guide because its notes said it had no custom game support and no D: drive access. These guides rely on custom games and shared-storage style setup, so the wrong APK can make the guide fail before mods are involved.</p>
+  <p>If custom games do not work, or the Windows container cannot see the expected drive, check which GameNative APK/build you installed before changing random settings.</p>
+</div>
 <div class="callout warning">
   <h3>Install New Vegas in shared storage</h3>
   <p>Do not put Fallout: New Vegas inside locked GameNative App Storage for this guide. DML needs practical access to the same game folder GameNative launches.</p>
   <pre>/storage/emulated/0/PcGames/Fallout New Vegas/</pre>
   <p>DML should deploy to the game <code>Data</code> folder, not the game root.</p>
 </div>
-
 <div class="card-grid">
-  <article class="card"><h3>Game</h3><p>Fallout: New Vegas Ultimate Edition.</p></article>
-  <article class="card"><h3>Platform</h3><p>Android through GameNative or a similar Windows-container app.</p></article>
-  <article class="card"><h3>Mod manager</h3><p><a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a> handles Android-side import, priority, deployment, plugin discovery, and plugin-file writing.</p></article>
-  <article class="card"><h3>Downloads</h3><p>Manual downloads from Nexus, ModDB, GitHub, or the listed mod page.</p></article>
+  <article class="card"><h3>Game</h3><p>Fallout: New Vegas Ultimate Edition.</p></article><article class="card"><h3>Platform</h3><p>Android through GameNative or a similar Windows-container app.</p></article><article class="card"><h3>Mod manager</h3><p><a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a> handles Android-side import, priority, deployment, load order review, and plugin-file writing.</p></article><article class="card"><h3>Downloads</h3><p>Manual downloads from Nexus, ModDB, GitHub, or the listed mod page.</p></article>
 </div>
-
 <h2>Vanilla check</h2>
 <ol class="checklist">
   <li>Launch Fallout: New Vegas in GameNative with no mods.</li>
-  <li>Start a new game and reach Doc Mitchell's house.</li>
+  <li>Reach Goodsprings/Doc Mitchell.</li>
   <li>Make a manual save.</li>
   <li>Quit the game completely.</li>
   <li>Relaunch and load that save.</li>
 </ol>
-
 <h2>Guide pages</h2>
 <div class="card-grid">
   <article class="card"><h3><a href="setup.html">Setup</a></h3><p>GameNative, shared storage, DML profile setup, BethINI Pie, and performance tracking.</p></article>
-  <article class="card"><h3><a href="mods.html">Mod List</a></h3><p>Root tools, utilities, fixes, optional meshes, UI, gameplay, and weather.</p></article>
-  <article class="card"><h3><a href="load-order.html">Load Order</a></h3><p>LOOT walkthrough, DML plugin sorting, starter <code>loadorder.txt</code>, and starter <code>plugins.txt</code>.</p></article>
+  <article class="card"><h3><a href="mods.html">Mod List</a></h3><p>Required preparation, utilities, core fixes, UI, performance choices, and optional additions.</p></article>
+  <article class="card"><h3><a href="load-order.html">Load Order</a></h3><p>LOOT as a check, DML load order review, starter <code>loadorder.txt</code>, and starter <code>plugins.txt</code>.</p></article>
   <article class="card"><h3><a href="avoid.html">Avoid</a></h3><p>Tools and mod categories that are not a good fit for this mobile guide right now.</p></article>
-  <article class="card"><h3><a href="changelog.html">Changelog</a></h3><p>Mod-list changes, removals, and save-safety notes. Guide wording fixes are not listed here.</p></article>
+  <article class="card"><h3><a href="changelog.html">Changelog</a></h3><p>Dated guide changes, mod-list changes, removals, compatibility warnings, and save-safety notes.</p></article>
   <article class="card"><h3><a href="report.html">Reports</a></h3><p>Tester report format and GitHub issue instructions.</p></article>
+  <article class="card"><h3><a href="compatibility.html">Compatibility</a></h3><p>Device profiles, verified-device rules, and the copyable report template for Android compatibility results.</p></article>
+  <article class="card"><h3><a href="glossary.html">Glossary</a></h3><p>Plain-language definitions for GameNative, DML, Proton/Wine, FEXCore, DXVK, load order, plugin files, shared storage, and report status labels.</p></article>
 </div>
-
 <h2>Credits</h2>
-<p>Shonk / SeanBottoms, SavageTheUnicorn, EmOkono, 420FalloutMac, and <a href="https://www.nexusmods.com/profile/deno46?gameId=110">Deno46</a>.</p>
+<p>Shonk / SeanBottoms, SavageTheUnicorn, EmOkono, 420FalloutMac, Medusa, and <a href="https://www.nexusmods.com/profile/deno46?gameId=110">Deno46</a>.</p>
 <p>Useful references: <a href="https://vivanewvegas.moddinglinked.com/">Viva New Vegas</a>, <a href="https://github.com/utkarshdalal/GameNative">GameNative</a>, and <a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a>.</p>
-
 
 <nav class="page-nav" aria-label="Page navigation">
   <div class="page-nav-spacer" aria-hidden="true"></div>

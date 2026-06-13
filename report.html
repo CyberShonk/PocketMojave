@@ -5,59 +5,77 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Reports | Shonk's Pocket Mojave</title>
   <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=9">
+  
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">Shonk's Pocket Mojave</a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html" class="">Home</a>
+<a href="index.html" class="">Home</a>
 <a href="setup.html" class="">Setup</a>
 <a href="mods.html" class="">Mod List</a>
 <a href="load-order.html" class="">Load Order</a>
 <a href="avoid.html" class="">Avoid</a>
 <a href="changelog.html" class="">Changelog</a>
 <a href="report.html" class="active">Reports</a>
+<a href="compatibility.html" class="">Compatibility</a>
+<a href="glossary.html" class="">Glossary</a>
       </nav>
     </div>
   </header>
   <main class="container">
-<section class="hero"><h1>Reports</h1><p class="lead">Reports should go to the Pocket Mojave website repo so they are easy to track and update.</p></section><section><h2>Submit a report</h2><p>Open a new issue here: <a class="button" href="https://github.com/CyberShonk/PocketMojave.github.io/issues/new/choose">Submit a Pocket Mojave issue</a></p><p>Use the issue form if it appears. Attach the DML support report, plugin list, load order, and crash logger output if you have them.</p></section>
-<section><h2>Performance reports</h2><ol><li>Use GameNative's overlay first for a quick FPS check.</li><li>Use the same route and weather each time.</li><li>Only switch to DXVK HUD if you need frame time, draw call, pipeline, or memory details.</li><li>Turn the DXVK HUD off after the benchmark.</li></ol><pre><code>DXVK_HUD=fps,frametimes,drawcalls,pipelines,memory</code></pre></section>
-<section><h2>Manual report format</h2><p>If the issue form is not available, copy this into the issue body:</p><pre><code>Device:
+
+<section class="hero"><h1>Reports</h1><p class="lead">Reports should include enough detail for someone else to reproduce the problem instead of guessing at random settings.</p></section>
+<section><h2>Submit a report</h2>
+<p>Use the <a href="compatibility.html">Device Compatibility Submissions</a> page for tested device results. A useful report needs device, driver, GameNative, DML, Proton/Wine, FEXCore, DXVK, Turnip, storage, and test-result details. Vague "it works" reports are not enough to list a device as compatible.</p>
+<p>If you are reporting a repeatable problem, open an issue and include your device, GameNative version, DML version, profile JSON, screenshots, logs, and the exact step where it failed.</p>
+<p><a class="button" href="https://github.com/CyberShonk/PocketMojave.github.io/issues/new/choose">Open a Pocket Mojave GitHub issue</a></p>
+<div class="callout notice learning-card"><h3>Before opening an issue</h3><ul>
+  <li>Confirm vanilla GameNative worked before reporting a modded crash.</li>
+  <li>Write down exact versions for GameNative, Proton/Wine, FEXCore, DXVK, Turnip/driver, DML, and the guide date.</li>
+  <li>Separate the failure point: GameNative launch, game install, DML deployment, plugin order, INI settings, or a specific mod.</li>
+  <li>Attach crash logs only when available. Screenshots of settings are still useful.</li>
+  
+</ul></div>
+</section>
+<section><h2>Copyable report template</h2>
+<pre>Device:
+Chipset / SoC:
+RAM:
 Android version:
+Guide tested:
+Game source: Steam / GOG / Epic / other
+GameNative APK/build type: legacy / modern / unknown
 GameNative version:
-Game source: Steam / GOG / Epic
-GameNative driver:
-Turnip driver/version:
-DXVK version:
-Wine/Proton version:
+Profile JSON used:
+Container:
+Proton/Wine:
+FEXCore:
+DXVK:
+Turnip/driver:
+Vulkan version:
 Resolution:
 Present mode:
-Frame cap:
-FEXCore/Box64 setting:
-Droid Mod Loader version:
-DML profile name:
-Guide section reached:
-Last mod installed:
-Did vanilla GameNative pass? yes/no
-Did xNVSE load? yes/no/unknown
-Crash location:
-Crash timing: launch / main menu / load save / entering cell / combat / menu
-What changed before the issue:
-Plugin list attached? yes/no
-Load order attached? yes/no
-DML support report attached? yes/no
-Crash logger output attached? yes/no
-Performance overlay used: GameNative / DXVK HUD / none
-Notes:</code></pre></section>
-<section><h2>Good report rules</h2><ul><li>Say the last mod or setting changed before the problem appeared.</li><li>Attach files instead of screenshots when possible.</li><li>Do not report a modded crash if vanilla GameNative never passed the vanilla check.</li><li>Do not change five things and then report only the crash.</li></ul></section>
-
-
+FPS cap:
+Audio mode / latency:
+CPU list:
+WoW64 CPU list:
+Environment variables:
+GOG/GameNative registry notice applied: yes/no/not GOG
+Launcher inside GameNative has greyed-out options, missing Play button, or install prompt: yes/no
+DML version:
+Storage route: shared storage / app storage
+Deployment target:
+Load order used:
+Crash log available: yes/no
+Exact step where it failed:
+What changed since the last working test:</pre>
+</section>
 <nav class="page-nav" aria-label="Page navigation">
   <a class="page-nav-link prev" href="changelog.html"><span>&larr; Previous</span><strong>Changelog</strong></a>
-  <div class="page-nav-spacer" aria-hidden="true"></div>
+  <a class="page-nav-link next" href="compatibility.html"><span>Next &rarr;</span><strong>Compatibility</strong></a>
 </nav>
   </main>
   <footer class="site-footer">
@@ -66,5 +84,6 @@ Notes:</code></pre></section>
       <br>This guide is unofficial and does not redistribute any game files or mods. Read each mod page before installing.
     </div>
   </footer>
+
 </body>
 </html>

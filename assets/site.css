@@ -351,3 +351,163 @@ pre {
     text-align: left;
   }
 }
+
+/* v8 layout hardening for homepage guide switcher and before-you-start cards */
+.hero + .guide-switcher {
+  margin-top: 0;
+}
+.guide-switcher {
+  margin-bottom: 30px;
+}
+.guide-switcher + .card-grid {
+  margin-top: 18px;
+}
+.callout {
+  display: block;
+  margin: 0 0 26px;
+}
+.callout + .card-grid {
+  margin-top: 22px;
+}
+@media (max-width: 720px) {
+  .guide-switcher {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+  .callout {
+    margin-bottom: 24px;
+  }
+}
+
+/* Beginner learning helpers */
+.glossary-entry p,
+.learning-card p {
+  margin: 0.45rem 0;
+}
+
+.glossary-entry strong,
+.learning-card strong {
+  color: var(--accent);
+}
+
+details.card {
+  margin-bottom: 14px;
+}
+
+details.card summary {
+  cursor: pointer;
+  list-style-position: inside;
+}
+
+details.card[open] summary {
+  margin-bottom: 12px;
+}
+
+.checkpoint-list li + li,
+.troubleshooting-list li + li {
+  margin-top: 0.35rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  margin-bottom: 22px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  background: rgba(27, 25, 24, 0.96);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  overflow: hidden;
+}
+
+th,
+td {
+  border-bottom: 1px solid var(--line);
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  background: rgba(90, 32, 28, 0.35);
+  color: var(--text);
+}
+
+td {
+  color: var(--muted);
+}
+
+tr:last-child td {
+  border-bottom: 0;
+}
+
+
+
+/* Device profile selector */
+.profile-selector {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 26px;
+}
+.profile-control {
+  display: grid;
+  gap: 8px;
+  max-width: 420px;
+}
+.profile-control label {
+  color: var(--text);
+  font-weight: 800;
+}
+.profile-control select {
+  width: 100%;
+  color: var(--text);
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 11px 12px;
+  font: inherit;
+}
+.profile-summary {
+  display: grid;
+  gap: 12px;
+}
+.profile-summary .profile-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+}
+.profile-summary .profile-title h3 {
+  margin: 0;
+}
+.profile-fields {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 10px;
+}
+.profile-field {
+  background: var(--panel-soft);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px;
+}
+.profile-field strong {
+  display: block;
+  color: var(--text);
+  font-size: 0.84rem;
+  margin-bottom: 3px;
+}
+.profile-field span {
+  color: var(--muted);
+}
+.profile-env {
+  white-space: pre-wrap;
+}
+.layout-note {
+  color: var(--muted);
+  margin-top: -6px;
+}

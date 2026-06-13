@@ -5,26 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Load Order | Shonk's Pocket Mojave</title>
   <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=9">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">Shonk's Pocket Mojave</a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html" class="">Home</a>
+<a href="index.html" class="">Home</a>
 <a href="setup.html" class="">Setup</a>
 <a href="mods.html" class="">Mod List</a>
 <a href="load-order.html" class="active">Load Order</a>
 <a href="avoid.html" class="">Avoid</a>
 <a href="changelog.html" class="">Changelog</a>
 <a href="report.html" class="">Reports</a>
+<a href="compatibility.html" class="">Compatibility</a>
+<a href="glossary.html" class="">Glossary</a>
       </nav>
     </div>
   </header>
   <main class="container">
 <section class="hero"><h1>Load Order</h1><p class="lead">This page covers LOOT as a helper, DML plugin sorting, and starter text files for a Pocket Mojave setup.</p></section><section><h2>Use LOOT as a check, not a magic button</h2><p><a href="https://loot.github.io/">LOOT</a> supports Fallout: New Vegas and can identify missing masters, warnings, dirty plugins, and order suggestions. Use it on PC when you can, then copy the result back into DML/GameNative.</p><ol><li>Install LOOT on a Windows PC or a Windows environment that can see your New Vegas folder.</li><li>Make sure the same plugins are present as the DML profile you are checking.</li><li>Run LOOT for Fallout: New Vegas.</li><li>Read the warnings before sorting.</li><li>Apply sorting only if the warnings make sense.</li><li>Compare LOOT's result against this guide's order shape.</li><li>Use DML to match the order on Android.</li></ol></section>
-<section><h2>Sorting plugins in Droid Mod Loader</h2><ol><li>Open DML.</li><li>Select the Pocket Mojave profile.</li><li>Deploy Current State.</li><li>Run plugin discovery.</li><li>Enable the guide plugins you installed.</li><li>Move official DLC to the top, then YUP, then other fixes, then UI, gameplay, and visual plugins.</li><li>Export plugin outputs.</li><li>Launch the game from GameNative and check that the expected plugins are active.</li></ol><aside class="callout"><strong>Important</strong><div>Plugin order controls ESM/ESP loading. Mod priority controls loose file conflicts. They are not the same list.</div></aside></section>
+<div class="callout warning"><h3>Plugin order and mod priority are not the same thing</h3><p>Plugin order controls ESM and ESP loading. Mod priority controls loose file conflicts. DML has to handle both, but they are different lists.</p></div>
+<section><h2>Sorting plugins in Droid Mod Loader</h2><ol><li>Open DML.</li><li>Select the Pocket Mojave profile.</li><li>Deploy Current State.</li><li>Use DML's plugin list/load order view to confirm the enabled ESM and ESP files match this page.</li><li>Enable the guide plugins you installed.</li><li>Move official DLC to the top, then YUP, then other fixes, then UI, gameplay, and visual plugins.</li><li>Export plugin outputs.</li><li>Launch the game from GameNative and check that the expected plugins are active.</li></ol></section>
 <section><h2>Starter loadorder.txt</h2><p>This is a starter order for the plugins in the mod list. It includes optional plugin names too, so it is easy to paste and trim. Missing entries do not install anything. If the game, DML, or LOOT complains about a plugin you skipped, remove that line.</p><pre><code>FalloutNV.esm
 DeadMoney.esm
 HonestHearts.esm

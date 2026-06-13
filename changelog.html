@@ -5,20 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Changelog | Shonk's Pocket Mojave</title>
   <meta name="description" content="A New Vegas on Android guide for GameNative, Droid Mod Loader, and handheld tinkering.">
-  <link rel="stylesheet" href="assets/site.css">
+  <link rel="stylesheet" href="assets/site.css?v=9">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <a class="logo" href="index.html">Shonk's Pocket Mojave</a>
       <nav class="nav" aria-label="Main navigation">
-        <a href="index.html" class="">Home</a>
+<a href="index.html" class="">Home</a>
 <a href="setup.html" class="">Setup</a>
 <a href="mods.html" class="">Mod List</a>
 <a href="load-order.html" class="">Load Order</a>
 <a href="avoid.html" class="">Avoid</a>
 <a href="changelog.html" class="active">Changelog</a>
 <a href="report.html" class="">Reports</a>
+<a href="compatibility.html" class="">Compatibility</a>
+<a href="glossary.html" class="">Glossary</a>
       </nav>
     </div>
   </header>
@@ -26,37 +28,42 @@
 
 <section class="hero">
   <h1>Changelog</h1>
-  <p class="lead">Mod-list changes only. This page is for added mods, removed mods, load-order-impacting changes, and save-safety notes.</p>
-  <p>Small website fixes, typo fixes, layout changes, and setup-command changes are intentionally not tracked here.</p>
+  <p class="lead">Dated guide changes, compatibility notes, mod-list changes, removals, and save-safety notes.</p>
 </section>
-
-<div class="callout notice">
-  <h3>How to read this page</h3>
-  <p><strong>Save safe</strong> means the update should be okay for an existing save if you follow the notes. <strong>New game recommended</strong> means the update changes enough of the list that a fresh save is the cleanest test. <strong>New game required</strong> means do not add the update mid-playthrough unless you know exactly what you are doing.</p>
-</div>
-
-<h2>Current guide version</h2>
-<div class="mod-list">
-  <article class="mod-card">
-    <header><h3>2026-06-02 — Initial Pocket Mojave list</h3><span class="badge recommended">New game recommended</span></header>
-    <p>This is the first public version of the guide site. Treat it as a fresh setup target rather than an update to an existing modded save.</p>
-    <div class="meta">
-      <div><strong>Added</strong>Root tools, utility plugins, bug fixes, UI fixes, light gameplay improvements, optional mesh fixes, audio fixes, and mobile-friendly weather/lighting options.</div>
-      <div><strong>Removed</strong>None. This is the initial list.</div>
-      <div><strong>Save safety</strong>Start from a clean save after the vanilla check. Do not use this first version as a drop-in upgrade for a long-running modded save.</div>
-    </div>
-  </article>
-</div>
-
-<h2>Changelog format for future updates</h2>
-<p>Future updates should keep the same pattern so users can quickly tell what changed and whether it is safe for an existing save.</p>
-<div class="card-grid">
-  <article class="card"><h3>Added</h3><p>New mods, new required files, new optional files, or newly recommended settings that affect the mod list.</p></article>
-  <article class="card"><h3>Removed</h3><p>Mods or files that are no longer part of the guide.</p></article>
-  <article class="card"><h3>Changed</h3><p>A mod switched to a different main file, an optional file became required, or the load order changed.</p></article>
-  <article class="card"><h3>Save safety</h3><p>Say whether the update is save safe, needs a clean save, or needs a new game.</p></article>
-</div>
-
+<section class="guide-switcher" aria-label="Guide picker">
+  <span class="guide-switcher-label">Guide picker</span>
+  <a class="guide-chip current" href="/PocketMojave/">
+    <strong>Shonk's Pocket Mojave</strong>
+    <span>New Vegas on Android</span>
+  </a>
+  <a class="guide-chip" href="/PocketWastelands/">
+    <strong>Shonk's Pocket Wastelands</strong>
+    <span>TTW on Android</span>
+  </a>
+</section>
+<p>Open a date to see what changed. Small typo fixes may be grouped with the nearest guide update.</p>
+<details class="card" open>
+  <summary>2026-06-11</summary>
+  <ul>
+    <li>Normalized the Pocket Mojave page structure to match the companion guide: setup, compatibility, glossary, changelog, reports, load order, credits, and mod-list layout now use the same patterns.</li>
+    <li>Updated the Snapdragon 8 Gen 2 profile to GameNative 1.0.0 latest release, marked it verified working, and set the last-tested date to 2026-06-11.</li>
+    <li>Linked compatibility entries to JSON profile files instead of filling the compatibility table with GameNative variables.</li>
+    <li>Added the memory/video-memory warning: use 2 GB memory and 2 GB video memory unless the Android device has 16 GB of RAM.</li>
+    <li>Clarified the GameNative build warning: use the current GameNative 1.0.0 standard APK/release path shown in this guide, and avoid the older v1.0.0 prerelease modern Android 11+ APK that removed custom game and D: drive support.</li>
+    <li>Added Medusa to credits for helping identify the GameNative modern prerelease custom game and D: drive support issue.</li>
+    <li>Changed the changelog into dated dropdown boxes.</li>
+    <li>Updated the plugin order vs mod priority warning to the same red warning in both guides.</li>
+    <li>Removed references to a nonexistent DML plugin-discovery action and replaced them with plugin list/load order review wording.</li>
+    <li>Added Pocket Mojave PC-side notes for Ultimate Edition ESM Fixes Remastered and FNV BSA Decompressor.</li><li>Added Sound Extender NVSE to Avoid due to crash risk in this Android/GameNative setup.</li>
+  </ul>
+</details>
+<details class="card">
+  <summary>2026-06-02</summary>
+  <ul>
+    <li>Initial Pocket Mojave list for New Vegas on Android.</li>
+    <li>Save safety: new game required for the initial guide target.</li>
+  </ul>
+</details>
 
 <nav class="page-nav" aria-label="Page navigation">
   <a class="page-nav-link prev" href="avoid.html"><span>&larr; Previous</span><strong>Avoid</strong></a>
