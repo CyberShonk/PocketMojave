@@ -25,10 +25,55 @@
     </div>
   </header>
   <main class="container">
-<section class="hero"><h1>Load Order</h1><p class="lead">This page covers LOOT as a helper, DML plugin sorting, and starter text files for a Pocket Mojave setup.</p></section><section><h2>Use LOOT as a check, not a magic button</h2><p><a href="https://loot.github.io/">LOOT</a> supports Fallout: New Vegas and can identify missing masters, warnings, dirty plugins, and order suggestions. Use it on PC when you can, then copy the result back into DML/GameNative.</p><ol><li>Install LOOT on a Windows PC or a Windows environment that can see your New Vegas folder.</li><li>Make sure the same plugins are present as the DML profile you are checking.</li><li>Run LOOT for Fallout: New Vegas.</li><li>Read the warnings before sorting.</li><li>Apply sorting only if the warnings make sense.</li><li>Compare LOOT's result against this guide's order shape.</li><li>Use DML to match the order on Android.</li></ol></section>
-<div class="callout warning"><h3>Plugin order and mod priority are not the same thing</h3><p>Plugin order controls ESM and ESP loading. Mod priority controls loose file conflicts. DML has to handle both, but they are different lists.</p></div>
-<section><h2>Sorting plugins in Droid Mod Loader</h2><ol><li>Open DML.</li><li>Select the Pocket Mojave profile.</li><li>Deploy Current State.</li><li>Use DML's plugin list/load order view to confirm the enabled ESM and ESP files match this page.</li><li>Enable the guide plugins you installed.</li><li>Move official DLC to the top, then YUP, then other fixes, then UI, gameplay, and visual plugins.</li><li>Export plugin outputs.</li><li>Launch the game from GameNative and check that the expected plugins are active.</li></ol></section>
-<section><h2>Starter loadorder.txt</h2><p>This is a starter order for the plugins in the mod list. It includes optional plugin names too, so it is easy to paste and trim. Missing entries do not install anything. If the game, DML, or LOOT complains about a plugin you skipped, remove that line.</p><pre><code>FalloutNV.esm
+<section class="hero"><h1>Load Order</h1><p class="lead">Use DML to manage activation and record your intended order, then preserve New Vegas's timestamp-based plugin order.</p></section>
+
+<div class="callout warning">
+  <h3>Current DML version: v0.6.0-beta</h3>
+  <p>This release writes plugin files into profile storage, but it does not create <code>DML_output</code>, copy files into GameNative, or change plugin timestamps.</p>
+</div>
+
+<section>
+  <h2>Four things that are easy to confuse</h2>
+  <div class="card-grid">
+    <article class="card"><h3>plugins.txt</h3><p>Controls activation. DML writes only enabled plugin filenames, one per line, with no <code>*</code> prefix for New Vegas.</p></article>
+    <article class="card"><h3>loadorder.txt</h3><p>Records DML's full plugin list in app order, including disabled entries. Keep it as a reference, but do not treat it as the mechanism that orders New Vegas in-game.</p></article>
+    <article class="card"><h3>Plugin timestamps</h3><p>New Vegas orders ESM and ESP files by their modification timestamps. Earlier timestamps load earlier; later timestamps load later.</p></article>
+    <article class="card"><h3>Mod priority</h3><p>Controls which mod wins loose-file conflicts. It is separate from plugin activation and plugin order.</p></article>
+  </div>
+</section>
+
+<section>
+  <h2>Use LOOT as a check, not a magic button</h2>
+  <p><a href="https://loot.github.io/">LOOT</a> supports Fallout: New Vegas and can identify missing masters, warnings, dirty plugins, and order suggestions. Use it on PC when possible, read every warning, and compare the result with this guide.</p>
+  <ol>
+    <li>Run LOOT in a Windows environment that can see the same New Vegas plugins.</li>
+    <li>Read warnings before applying a sort.</li>
+    <li>Confirm that the resulting order matches mod requirements and the guide's intended shape.</li>
+    <li>Apply the intended order through the ESM and ESP modification timestamps in the actual <code>Data</code> folder GameNative will use.</li>
+    <li>If the files were prepared on PC, verify their timestamps again after copying them to Android and after later DML deployments.</li>
+    <li>Use DML's order view and <code>loadorder.txt</code> as a readable reference for the intended order.</li>
+  </ol>
+</section>
+
+<div class="callout warning">
+  <h3>DML does not apply New Vegas timestamps yet</h3>
+  <p>Moving a plugin inside DML v0.6.0-beta changes DML's saved list and the generated <code>loadorder.txt</code>. It does not change the ESM or ESP file timestamp in <code>Data</code>. Copying <code>loadorder.txt</code> into GameNative therefore does not, by itself, change the real in-game order.</p>
+  <p>If you cannot inspect or preserve timestamps in the shared-storage <code>Data</code> folder used by GameNative, this guide cannot guarantee the exact New Vegas plugin order. Keep the plugin list conservative and verify the game carefully.</p>
+</div>
+
+<section>
+  <h2>Write the current plugin files in DML</h2>
+  <ol>
+    <li>Open DML and select the Pocket Mojave profile.</li>
+    <li>Deploy the current mod state.</li>
+    <li>Open the plugin list and enable only the plugins that are actually installed.</li>
+    <li>Arrange the DML list to match the intended order below.</li>
+    <li>Tap <strong>Write Plugin Files</strong>.</li>
+    <li>Read DML's operation log and note the exact paths it reports for <code>plugins.txt</code> and <code>loadorder.txt</code>.</li>
+  </ol>
+</section>
+
+<section><h2>Starter loadorder.txt</h2><p>This file is a readable record of the intended order. It includes optional names from the guide; remove entries for plugins you did not install. The same order still needs to be reflected by the plugin timestamps in <code>Data</code>.</p><pre><code>FalloutNV.esm
 DeadMoney.esm
 HonestHearts.esm
 OldWorldBlues.esm
@@ -65,45 +110,69 @@ Auto-Save Manager.esp
 Bad Touch.esm
 Simple Interior Lighting Enhancement.esp
 Sunshine On My Shoulders.esp</code></pre></section>
-<section><h2>Starter plugins.txt</h2><p>The <code>*</code> means enabled. Use this as a template, then let DML discovery and your installed files confirm the exact plugin names.</p><pre><code>*FalloutNV.esm
-*DeadMoney.esm
-*HonestHearts.esm
-*OldWorldBlues.esm
-*LonesomeRoad.esm
-*GunRunnersArsenal.esm
-*CaravanPack.esm
-*ClassicPack.esm
-*MercenaryPack.esm
-*TribalPack.esm
-*YUP - Base Game + All DLC.esm
-*YUPDate.esm
-*Unofficial Patch NVSE Plus.esp
-*NVMIM.esp
-*NVMIM - YUP Patch.esp
-*The Mod Configuration Menu.esp
-*Vanilla UI Plus.esp
-*UI Improvements.esp
-*PipBoyUITweaks.esp
-*Clean Vanilla HUD.esp
-*Clean Companion Wheel 256.esp
-*High Resolution Screens.esp
-*High Res Local Maps.esp
-*Iron Sights Aligned.esp
-*Misc Audio Tweaks.esp
-*Muzzle Flash Light Fix.esp
-*Viewmodel Shading Fix.esp
-*JAM - Just Assorted Mods.esp
-*Enhanced Movement.esp
-*Manual Reload and Ammo Memory.esp
-*Better Caravan.esp
-*Cookable Grenades.esp
-*Faster Sleep-Wait.esp
-*Auto-Save Manager.esp
-*Bad Touch.esm
-*Simple Interior Lighting Enhancement.esp
-*Sunshine On My Shoulders.esp</code></pre></section>
-<section><h2>Where the files go</h2><p>The usual Windows paths are:</p><pre><code>%LOCALAPPDATA%/FalloutNV/plugins.txt
-%LOCALAPPDATA%/FalloutNV/loadorder.txt</code></pre><p>Inside a Proton or Wine prefix, that usually means:</p><pre><code>drive_c/users/&lt;user&gt;/AppData/Local/FalloutNV/</code></pre><p>The exact GameNative folder can vary. If the game is ignoring your load order, check this first.</p></section>
+
+<section><h2>Starter plugins.txt</h2><p>This is the activation list. New Vegas uses plain filenames here: no Fallout 4-style <code>*</code> prefixes. Keep only plugins that are installed and meant to be enabled.</p><pre><code>FalloutNV.esm
+DeadMoney.esm
+HonestHearts.esm
+OldWorldBlues.esm
+LonesomeRoad.esm
+GunRunnersArsenal.esm
+CaravanPack.esm
+ClassicPack.esm
+MercenaryPack.esm
+TribalPack.esm
+YUP - Base Game + All DLC.esm
+YUPDate.esm
+Unofficial Patch NVSE Plus.esp
+NVMIM.esp
+NVMIM - YUP Patch.esp
+The Mod Configuration Menu.esp
+Vanilla UI Plus.esp
+UI Improvements.esp
+PipBoyUITweaks.esp
+Clean Vanilla HUD.esp
+Clean Companion Wheel 256.esp
+High Resolution Screens.esp
+High Res Local Maps.esp
+Iron Sights Aligned.esp
+Misc Audio Tweaks.esp
+Muzzle Flash Light Fix.esp
+Viewmodel Shading Fix.esp
+JAM - Just Assorted Mods.esp
+Enhanced Movement.esp
+Manual Reload and Ammo Memory.esp
+Better Caravan.esp
+Cookable Grenades.esp
+Faster Sleep-Wait.esp
+Auto-Save Manager.esp
+Bad Touch.esm
+Simple Interior Lighting Enhancement.esp
+Sunshine On My Shoulders.esp</code></pre></section>
+
+<section>
+  <h2>Copy the files into GameNative</h2>
+  <ol>
+    <li>Use the source paths printed in DML's operation log. The usual external profile-storage area is under <code>Android/data/com.shonkware.droidmodloader/files/state/profiles/</code>.</li>
+    <li>Use ZArchiver or another file manager that can request access through Android's system folder picker.</li>
+    <li>Copy both files to a temporary shared folder, such as <code>Download/DML Plugin Transfer/</code>.</li>
+    <li>Inside GameNative, copy both files to <code>C:/users/xuser/AppData/Local/FalloutNV/</code>. Use the corresponding user folder if your container does not use <code>xuser</code>.</li>
+    <li>Replace the old copies and launch the game. <code>plugins.txt</code> controls activation; <code>loadorder.txt</code> remains a reference, while the ESM and ESP timestamps in <code>Data</code> control the actual New Vegas order.</li>
+  </ol>
+  <p>The equivalent Windows location is:</p>
+  <pre><code>%LOCALAPPDATA%/FalloutNV/</code></pre>
+</section>
+
+<section>
+  <h2>Troubleshooting</h2>
+  <ul class="troubleshooting-list">
+    <li><strong>Plugins do not activate:</strong> confirm the correct <code>plugins.txt</code> is in GameNative's <code>AppData/Local/FalloutNV</code> folder and contains plain filenames without <code>*</code> prefixes.</li>
+    <li><strong>The order is wrong:</strong> inspect the ESM and ESP modification timestamps in <code>Data</code>. Copying <code>loadorder.txt</code> alone does not set them.</li>
+    <li><strong>DML wrote no files:</strong> confirm a saved plugin list exists, then tap <strong>Write Plugin Files</strong> and read the operation log.</li>
+    <li><strong>The source path is inaccessible:</strong> grant your file manager access to the required <code>Android/data</code> folder through the Android system picker. Follow DML's logged path if it differs from the usual path.</li>
+    <li><strong>There is no DML_output folder:</strong> that is expected in v0.6.0-beta. Use a temporary transfer folder you create yourself.</li>
+    <li><strong>DML deploys to the wrong place:</strong> when asked for the Data Folder, select <code>&lt;Game Folder&gt;/Data</code>. If DML separately asks for the Game Root Folder, select the parent containing <code>FalloutNV.exe</code> and <code>Data</code>. Do not swap the two targets.</li>
+  </ul>
+</section>
 
 
 <nav class="page-nav" aria-label="Page navigation">

@@ -62,7 +62,7 @@
   </article>
   <article class="card glossary-entry" id="droid-mod-loader-dml">
     <h3>Droid Mod Loader / DML</h3>
-    <p><strong>Plain-language explanation:</strong> The Android mod manager used by these guides to import mod archives, deploy files, discover plugins, and write plugin/load order files.</p>
+    <p><strong>Plain-language explanation:</strong> The Android mod manager used by these guides to import mod archives, deploy files, detect plugins, manage plugin activation, and write <code>plugins.txt</code> and <code>loadorder.txt</code>.</p>
     <p><strong>Why it matters:</strong> DML keeps Android-side mod management separate from GameNative, but it needs access to the correct New Vegas Data folder.</p>
   </article>
   <article class="card glossary-entry" id="proton">
@@ -138,7 +138,37 @@
   <article class="card glossary-entry" id="load-order">
     <h3>Load order</h3>
     <p><strong>Plain-language explanation:</strong> The order that ESM and ESP plugin files load in the game.</p>
-    <p><strong>Why it matters:</strong> A bad load order can undo fixes, break TTW, or cause crashes even when every mod file is installed correctly.</p>
+    <p><strong>Why it matters:</strong> A bad load order can undo fixes, break TTW, or cause crashes even when every mod file is installed correctly. New Vegas and TTW apply plugin order through ESM and ESP modification timestamps.</p>
+  </article>
+  <article class="card glossary-entry" id="game-root">
+    <h3>Game Folder / Game Root</h3>
+    <p><strong>Plain-language explanation:</strong> The main game folder containing <code>FalloutNV.exe</code> and the <code>Data</code> folder.</p>
+    <p><strong>Why it matters:</strong> DML v0.6.0-beta may ask for this separately from the Data Folder. Do not select <code>Data</code> when the picker asks for Game Root.</p>
+  </article>
+  <article class="card glossary-entry" id="data-folder">
+    <h3>Data Folder</h3>
+    <p><strong>Plain-language explanation:</strong> The <code>Data</code> folder inside the Game Root. It contains files such as <code>FalloutNV.esm</code> and is where DML deploys normal mod content.</p>
+    <p><strong>Why it matters:</strong> When DML asks for the Data Folder, choose <code>&lt;Game Folder&gt;/Data</code>, not the parent Game Root.</p>
+  </article>
+  <article class="card glossary-entry" id="plugins-txt">
+    <h3>plugins.txt</h3>
+    <p><strong>Plain-language explanation:</strong> The text file that lists the plugins enabled for the game. New Vegas and TTW use plain filenames without Fallout 4-style <code>*</code> prefixes.</p>
+    <p><strong>Why it matters:</strong> Copying the correct file into GameNative's <code>AppData/Local/FalloutNV</code> folder controls which listed plugins are active.</p>
+  </article>
+  <article class="card glossary-entry" id="loadorder-txt">
+    <h3>loadorder.txt</h3>
+    <p><strong>Plain-language explanation:</strong> DML's text record of the full saved plugin list in app order, including disabled entries.</p>
+    <p><strong>Why it matters:</strong> It is useful as a readable reference, but it does not replace timestamp-based ordering in New Vegas or TTW.</p>
+  </article>
+  <article class="card glossary-entry" id="plugin-activation">
+    <h3>Plugin activation</h3>
+    <p><strong>Plain-language explanation:</strong> Whether a plugin is enabled and allowed to load.</p>
+    <p><strong>Why it matters:</strong> Activation is controlled by <code>plugins.txt</code>. It is separate from the order in which enabled plugins load.</p>
+  </article>
+  <article class="card glossary-entry" id="plugin-timestamp-order">
+    <h3>Plugin timestamp order</h3>
+    <p><strong>Plain-language explanation:</strong> New Vegas and TTW sort ESM and ESP files by their modification times. Earlier timestamps load earlier; later timestamps load later.</p>
+    <p><strong>Why it matters:</strong> DML v0.6.0-beta does not apply these timestamps, so its on-screen order and generated <code>loadorder.txt</code> do not enforce the in-game order by themselves.</p>
   </article>
   <article class="card glossary-entry" id="plugin">
     <h3>Plugin</h3>
@@ -163,7 +193,7 @@
   <article class="card glossary-entry" id="mod-manager">
     <h3>Mod manager</h3>
     <p><strong>Plain-language explanation:</strong> A tool that installs, orders, enables, disables, or deploys mods. DML is the Android mod manager used by these guides.</p>
-    <p><strong>Why it matters:</strong> Manual file copying becomes hard to debug. A mod manager helps keep mod files and plugin order more reproducible.</p>
+    <p><strong>Why it matters:</strong> Manual file copying becomes hard to debug. A mod manager helps keep deployments and activation records reproducible, but current DML does not apply New Vegas or TTW plugin timestamps.</p>
   </article>
   <article class="card glossary-entry" id="deployment">
     <h3>Deployment</h3>

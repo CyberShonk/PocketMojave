@@ -43,6 +43,21 @@
 </section>
 <p>Open a date to see what changed. Small typo fixes may be grouped with the nearest guide update.</p>
 <details class="card" open>
+  <summary>2026-06-17</summary>
+  <ul>
+    <li>Audited the current setup and plugin-file instructions against Droid Mod Loader v0.6.0-beta.</li>
+    <li>Removed Fallout 4-style <code>*</code> activation prefixes from the New Vegas <code>plugins.txt</code> example.</li>
+    <li>Clarified that <code>plugins.txt</code> contains enabled plugins, while DML's <code>loadorder.txt</code> records the full saved list and does not replace New Vegas's timestamp-based plugin ordering.</li>
+    <li>Clarified the current manual handoff from DML profile storage to GameNative's <code>AppData/Local/FalloutNV</code> folder.</li>
+    <li>Clarified v0.6.0-beta's separate Data Folder and Game Root Folder targets, including troubleshooting for swapped targets, invalid selections, lost Android folder permission, inaccessible plugin output, and the expected absence of <code>DML_output</code>.</li>
+    <li>Added storefront guidance: GOG is recommended, Steam is usable with a tested folder-name/container-refresh workaround, and Epic should work but has not been personally tested.</li>
+    <li>Clarified that automatic Game Folder detection and validation, automatic <code>DML_output</code>, timestamp application, INI presets, and archive invalidation are not current v0.6.0-beta features.</li>
+    <li>Updated the glossary and mod-list handoff wording so DML activation files are not confused with New Vegas or TTW timestamp ordering.</li>
+    <li>Credit: Thanks to <strong>TheFartFace</strong> for reporting the clarity issues corrected in this update.</li>
+    <li>Save safety: documentation-only correction; no existing save or installation change is required.</li>
+  </ul>
+</details>
+<details class="card">
   <summary>2026-06-11</summary>
   <ul>
     <li>Normalized the Pocket Mojave page structure to match the companion guide: setup, compatibility, glossary, changelog, reports, load order, credits, and mod-list layout now use the same patterns.</li>

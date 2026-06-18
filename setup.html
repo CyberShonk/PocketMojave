@@ -50,13 +50,37 @@
   <h3>New to these terms?</h3>
   <p>Use the <a href="glossary.html">Glossary</a> when a term is unclear. Do not guess at settings like DXVK, FEXCore, Turnip, present mode, shared storage, or plugin order.</p>
 </div>
+<h2>Which PC version should I use?</h2>
+<div class="callout notice learning-card">
+  <h3>GOG is recommended, but Steam is usable</h3>
+  <p>The GOG Ultimate Edition is the simplest choice for this guide because it is DRM-free and is usually easier to copy into Android shared storage.</p>
+  <p>The Steam version can also work. GameNative can recognize Steam ownership, but a New Vegas folder copied manually from a PC may not be detected immediately.</p>
+  <p>If GameNative does not recognize a copied Steam installation:</p>
+  <ol>
+    <li>Confirm that GameNative is signed into the Steam account that owns Fallout: New Vegas.</li>
+    <li>Rename the shared-storage game folder so it closely matches the name shown in the Steam client. <code>Fallout New Vegas</code> is a good example.</li>
+    <li>Close and reopen GameNative.</li>
+    <li>Refresh or recreate the game entry or container, then select <code>FalloutNV.exe</code> again.</li>
+  </ol>
+  <p>The folder rename and container refresh worked during my testing, but newer GameNative versions may not need it and the workaround is not guaranteed on every device.</p>
+  <p>The Epic Games Store version should also work with the appropriate Epic preparation steps, but I have not personally tested it. GOG remains the recommended first-time route.</p>
+</div>
+<div class="callout warning">
+  <h3>These DML instructions are for v0.6.0-beta</h3>
+  <p>DML v0.6.0-beta uses separate manually selected targets for the <code>Data</code> folder and, when needed, the Game Root folder. It does not infer one from the other or validate the complete game installation. Plugin files still require a manual handoff to GameNative. This release does not create <code>DML_output</code>, apply INI presets, or manage archive invalidation.</p>
+</div>
 <h2>How to troubleshoot setup</h2>
 <ul class="troubleshooting-list">
   <li>Change one thing at a time, then test again.</li>
   <li>Write down exact version numbers before changing GameNative, Proton/Wine, FEXCore, DXVK, Turnip, DML, or driver settings.</li>
   <li>Test vanilla before adding mods. A modded crash report is not useful if the unmodded game never launched.</li>
-  <li>Keep screenshots of GameNative settings, DML profile settings, deployment results, and plugin output.</li>
-  <li>Separate the problem into one layer: GameNative, the game install, DML, the mod list, the load order, or INI settings.</li>
+  <li>When DML asks for the <strong>Data Folder</strong>, select <code>&lt;Game Folder&gt;/Data</code>. Confirm it contains <code>FalloutNV.esm</code>.</li>
+  <li>When DML separately asks for the <strong>Game Root Folder</strong>, select the parent folder containing <code>FalloutNV.exe</code> and <code>Data</code>. Do not swap the two targets.</li>
+  <li>If DML rejects a folder or deploys to the wrong place, reselect the correct target and manually check its contents. v0.6.0-beta does not validate the complete New Vegas installation for you.</li>
+  <li>If deployment worked before but now fails, Android may have removed DML's folder permission. Select the affected folder again and approve the system access prompt.</li>
+  <li>A missing <code>DML_output</code> folder is normal in v0.6.0-beta. That automatic export folder is planned for a later release.</li>
+  <li>Keep screenshots of GameNative settings, DML profile settings, deployment results, the plugin list, and DML's operation log.</li>
+  <li>Separate the problem into one layer: GameNative, the game install, DML, the mod list, plugin activation, timestamp order, or INI settings.</li>
 </ul>
 <h2>GameNative setup</h2>
 <p>Use a simple GameNative setup first. Do not change drivers, wrappers, resolution, and mods all at the same time.</p>
@@ -135,35 +159,55 @@ document.addEventListener('DOMContentLoaded', () => {
     <li>If this fails, stop here. Fix GameNative, the game install, or the profile before adding mods.</li>
   </ul>
 </div>
-<h2>DML setup</h2>
+<h2>DML v0.6.0-beta setup</h2>
 <p>Create a fresh profile in <a href="https://github.com/CyberShonk/DroidModLoader">Droid Mod Loader</a> for New Vegas.</p>
 <div class="callout warning">
   <h3>Install New Vegas where DML can reach it</h3>
   <p>Fallout: New Vegas needs to be installed outside GameNative App Storage. Put the game in shared storage so Android and DML can access the folder through the system file picker.</p>
   <pre>/storage/emulated/0/PcGames/Fallout New Vegas/</pre>
-  <p>If the game lives inside GameNative's private App Storage, DML will not be able to use the real <code>Data</code> folder as a deployment target.</p>
+  <p>If the game lives only inside GameNative's private App Storage, DML cannot use the real <code>Data</code> folder as a deployment target.</p>
 </div>
 <ol>
   <li>Install or move Fallout: New Vegas to shared storage, not GameNative App Storage.</li>
   <li>Open Droid Mod Loader.</li>
-  <li>Create or select a Fallout: New Vegas profile.</li>
-  <li>Name it <code>Pocket Mojave</code>.</li>
-  <li>Set the deployment target to the game's <code>Data</code> folder in shared storage.</li>
-  <li>Confirm that the target contains <code>FalloutNV.esm</code>.</li>
-  <li>Do not select the game root as the Data target.</li>
-  <li>Install mods in the order shown in the mod list.</li>
+  <li>Create or select a Fallout: New Vegas profile and name it <code>Pocket Mojave</code>.</li>
+  <li>When DML asks for the <strong>Data Folder</strong>, select <code>&lt;Game Folder&gt;/Data</code>. Confirm that it contains <code>FalloutNV.esm</code>.</li>
+  <li>If DML separately asks for the <strong>Game Root Folder</strong>, select the parent folder containing <code>FalloutNV.exe</code> and the <code>Data</code> folder.</li>
+  <li>Do not swap those two targets. v0.6.0-beta does not automatically detect <code>Data</code> from the Game Root or validate the complete installation.</li>
+  <li>Install and deploy mods in the order shown in the mod list.</li>
+  <li>Open DML's plugin list, enable only the plugins you installed, arrange the list to match the guide, and tap <strong>Write Plugin Files</strong>.</li>
 </ol>
 <div class="callout warning">
-  <h3>Plugin order and mod priority are not the same thing</h3>
-  <p>Plugin order controls ESM and ESP loading. Mod priority controls loose file conflicts. DML has to handle both, but they are different lists.</p>
+  <h3>Activation, plugin order, and mod priority are different</h3>
+  <p><code>plugins.txt</code> lists enabled plugins. For Fallout: New Vegas, each enabled filename is written on its own line without a <code>*</code> prefix. <code>loadorder.txt</code> records DML's full plugin list in the order shown by the app, including disabled entries.</p>
+  <p>New Vegas applies plugin order from the modification timestamps of the ESM and ESP files in <code>Data</code>. DML v0.6.0-beta does not change those timestamps, so writing or copying <code>loadorder.txt</code> alone does not enforce the real in-game order. Mod priority is a separate list that controls loose-file conflicts.</p>
 </div>
 <div class="callout notice learning-card">
   <h3>Checkpoint: DML deployment target</h3>
   <ul class="checkpoint-list">
     <li>DML shows a Pocket Mojave profile.</li>
-    <li>The deployment target is the game <code>Data</code> folder in shared storage.</li>
-    <li>The target folder contains <code>FalloutNV.esm</code>.</li>
-    <li>If DML points at the game root or GameNative App Storage, stop and fix the target before installing mods.</li>
+    <li>The Data Folder target is <code>&lt;Game Folder&gt;/Data</code> in shared storage and contains <code>FalloutNV.esm</code>.</li>
+    <li>If a Game Root target is configured, it is the parent folder containing <code>FalloutNV.exe</code> and <code>Data</code>.</li>
+    <li>Neither target points into locked GameNative App Storage.</li>
+    <li>DML reports that <code>plugins.txt</code> and <code>loadorder.txt</code> were written successfully.</li>
+  </ul>
+</div>
+<h2>Copy DML's plugin files into GameNative</h2>
+<p>DML v0.6.0-beta does not copy these files into GameNative automatically.</p>
+<ol>
+  <li>After tapping <strong>Write Plugin Files</strong>, open DML's operation log. It prints the exact source path for <code>plugins.txt</code> and <code>loadorder.txt</code>.</li>
+  <li>On most current installations, the files are under DML's profile storage in <code>Android/data/com.shonkware.droidmodloader/files/state/profiles/</code>. Open the folder for the active Pocket Mojave profile. If DML's log shows a different path, use the logged path.</li>
+  <li>Use ZArchiver or another file manager that can request access to <code>Android/data</code> through Android's system folder picker. Root access is not normally required for this external app-storage path.</li>
+  <li>Copy both files into a temporary shared folder that GameNative can see, such as <code>Download/DML Plugin Transfer/</code>. This folder is user-created; it is not the unreleased automatic <code>DML_output</code> feature.</li>
+  <li>Open GameNative's file manager and copy both files into <code>C:/users/xuser/AppData/Local/FalloutNV/</code>. If your container uses another username, use that user's <code>AppData/Local/FalloutNV</code> folder.</li>
+  <li>Replace the existing files when prompted. <code>plugins.txt</code> controls activation; <code>loadorder.txt</code> is a readable reference for DML's saved list. Repeat this handoff whenever plugin activation or the DML list changes.</li>
+</ol>
+<div class="callout notice learning-card">
+  <h3>Checkpoint: GameNative sees the files</h3>
+  <ul class="checkpoint-list">
+    <li><code>plugins.txt</code> and <code>loadorder.txt</code> exist in GameNative's <code>AppData/Local/FalloutNV</code> folder.</li>
+    <li><code>plugins.txt</code> contains only the plugins you enabled, with no <code>*</code> prefixes.</li>
+    <li>The ESM and ESP timestamps in the actual shared-storage <code>Data</code> folder used by GameNative match the intended New Vegas order.</li>
   </ul>
 </div>
 <h2>BethINI Pie</h2>
