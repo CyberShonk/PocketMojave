@@ -52,24 +52,43 @@
 </div>
 <h2>Which PC version should I use?</h2>
 <div class="callout notice learning-card">
-  <h3>GOG is recommended, but Steam is usable</h3>
-  <p>The GOG Ultimate Edition is the simplest choice for this guide because it is DRM-free and is usually easier to copy into Android shared storage.</p>
-  <p>The Steam version can also work. GameNative can recognize Steam ownership, but a New Vegas folder copied manually from a PC may not be detected immediately.</p>
-  <p>If GameNative does not recognize a copied Steam installation:</p>
-  <ol>
-    <li>Confirm that GameNative is signed into the Steam account that owns Fallout: New Vegas.</li>
-    <li>Rename the shared-storage game folder so it closely matches the name shown in the Steam client. <code>Fallout New Vegas</code> is a good example.</li>
-    <li>Close and reopen GameNative.</li>
-    <li>Refresh or recreate the game entry or container, then select <code>FalloutNV.exe</code> again.</li>
-  </ol>
-  <p>The folder rename and container refresh worked during my testing, but newer GameNative versions may not need it and the workaround is not guaranteed on every device.</p>
-  <p>The Epic Games Store version should also work with the appropriate Epic preparation steps, but I have not personally tested it. GOG remains the recommended first-time route.</p>
+  <h3>GOG is recommended, but Steam and/or Epic Games versions should be usable</h3>
+  <p>The GOG Ultimate Edition is the simplest choice for this guide because it is DRM-free and is generally easier to manage as a custom game in GameNative.</p>
+  <p>Steam and Epic Games versions <em>should</em> also work. GameNative can recognize Steam ownership, but a New Vegas folder copied manually from a PC may not be detected immediately.</p>
+  <p>If your Steam installation is not recognized in GameNative, see the "How to troubleshoot setup" section below.</p>
 </div>
 <div class="callout warning">
   <h3>These DML instructions are for v0.6.0-beta</h3>
   <p>DML v0.6.0-beta uses separate manually selected targets for the <code>Data</code> folder and, when needed, the Game Root folder. It does not infer one from the other or validate the complete game installation. Plugin files still require a manual handoff to GameNative. This release does not create <code>DML_output</code>, apply INI presets, or manage archive invalidation.</p>
 </div>
+<h2>Installation instructions</h2>
+<div class="callout notice learning-card">
+  <h3>In order for Droid Mod Loader to be able to modify game files, Fallout: New Vegas must be installed in Android Shared Storage.</h3>
+  <p>This means that you <em>should not use</em> GameNative's built-in installer in order to populate game files, as this will put the game files into <em>Application Storage</em>, which is managed by GameNative and inaccessible by Droid Mod Loader.</p>
+  <p>Instead, from your PC, perform a clean install of Fallout: New Vegas.  The <a href="https://thebestoftimes.moddinglinked.com/setup.html#Installation">Installation Guide at "The Best of Times"</a> is an excellent resource for getting a clean install.  Once you've reached the "Post Installation" stage in that guide, you should have a proper clean installation of the game.</p>
+  <p>Next, move the complete installation folder from your PC over to your Android device into shared storage.  In our example, we will move it into <code>Games/FalloutNV</code>.</p>
+  <p>Launch GameNative, and add Fallout: New Vegas as a <em>custom game</em> by pointing GameNative to your installation folder (eg. <code>Games/FalloutNV</code>).</p>
+  <p>Finally, launch the game from within GameNative.  If it doesn't immediately launch, <em>don't panic!</em>  This is very common, and likely easy to fix.</p>
+</div>
 <h2>How to troubleshoot setup</h2>
+<h3>My game doesn't launch!</h3>
+<p>If you have just followed the installation instructions above, attempted to launch the game and just got a black screen, try the following steps:</p>
+<ol>
+  <li>Click on the "Settings" button of your Fallout: New Vegas custom game screen in GameNative to launch the container settings.</li>
+  <li>Click "Open Container".</li>
+  <li>Inside of the container, it will look similar to a Windows desktop.  If a file browser opens automatically, click into <code>A:</code>.</li>
+  <li>Double-click into <code>FalloutLauncher.exe</code>.</li>
+  <li>If the Fallout: New Vegas launcher has greyed-out options, hides the Play button, or says the game needs to be installed even though the files are already on the device, the container is likely missing the Bethesda registry entry.</li>
+</ol>
+<p>In order to add the Bethesda registry entry into the container, follow these steps:</p>
+<ol>
+  <li>Download <a href="https://support.gog.com/hc/en-us/articles/115003627285-Oblivion-Greyed-out-options-or-missing-Play-button-in-the-launcher?product=gog">GOG's beth_registry.zip fix</a>.</li>
+  <li>Extract <code>beth_registry.cmd</code>.</li>
+  <li>Place <code>beth_registry.cmd</code> in the game root inside the container, next to <code>FalloutNV.exe</code>.</li>
+  <li>Run it from that folder and allow it to update the registry.</li>
+  <li>Open the launcher again. If the options are still greyed out, report the GameNative build, game source, and exact folder path.</li>
+</ol>
+<h3>General Troubleshooting Steps</h3>
 <ul class="troubleshooting-list">
   <li>Change one thing at a time, then test again.</li>
   <li>Write down exact version numbers before changing GameNative, Proton/Wine, FEXCore, DXVK, Turnip, DML, or driver settings.</li>
@@ -82,6 +101,16 @@
   <li>Keep screenshots of GameNative settings, DML profile settings, deployment results, the plugin list, and DML's operation log.</li>
   <li>Separate the problem into one layer: GameNative, the game install, DML, the mod list, plugin activation, timestamp order, or INI settings.</li>
 </ul>
+<h3>Troubleshooting Steam/Epic Games version installation</h3>
+<p>If GameNative does not recognize a copied Steam installation:</p>
+  <ol>
+    <li>Confirm that GameNative is signed into the Steam account that owns Fallout: New Vegas.</li>
+    <li>Rename the shared-storage game folder so it closely matches the name shown in the Steam client. <code>Fallout New Vegas</code> is a good example.</li>
+    <li>Close and reopen GameNative.</li>
+    <li>Refresh or recreate the game entry or container, then select <code>FalloutNV.exe</code> again.</li>
+  </ol>
+  <p>The folder rename and container refresh worked during my testing, but newer GameNative versions may not need it and the workaround is not guaranteed on every device.</p>
+  <p>The Epic Games Store version should also work with the appropriate Epic preparation steps, but I have not personally tested it. GOG remains the recommended first-time route.</p>
 <h2>GameNative setup</h2>
 <p>Use a simple GameNative setup first. Do not change drivers, wrappers, resolution, and mods all at the same time.</p>
 
@@ -137,18 +166,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderPocketGuideProfile();
 });
 </script>
-<div class="callout notice learning-card">
-  <h3>GOG launcher notice inside GameNative</h3>
-  <p>If the Fallout: New Vegas launcher inside the GameNative Windows container has greyed-out options, hides the Play button, or says the game needs to be installed even though the files are already on the device, the container may be missing the Bethesda registry entry.</p>
-  <ol>
-    <li>Download <a href="https://support.gog.com/hc/en-us/articles/115003627285-Oblivion-Greyed-out-options-or-missing-Play-button-in-the-launcher?product=gog">GOG's beth_registry.zip fix</a>.</li>
-    <li>Extract <code>beth_registry.cmd</code>.</li>
-    <li>Place <code>beth_registry.cmd</code> in the game root inside the container, next to <code>FalloutNV.exe</code>.</li>
-    <li>Run it from that folder and allow it to update the registry.</li>
-    <li>Open the launcher again. If the options are still greyed out, report the GameNative build, game source, and exact folder path.</li>
-  </ol>
-  <p>This is not a normal PC setup step. Use it only when the game is already on the Android device and the launcher inside GameNative acts like the game is not installed.</p>
-</div>
 
 <div class="callout notice learning-card">
   <h3>Checkpoint: GameNative works before DML</h3>
